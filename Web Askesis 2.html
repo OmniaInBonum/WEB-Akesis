@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis - Entrenamiento Personalizado Basado en Ciencia</title>
+    <meta name="description" content="Transforma tu físico y alcanza tus metas con Askesis. Entrenamiento online personalizado, basado en ciencia y adaptado a ti.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C',
+                        'askesis-green': '#008037',
+                        'askesis-orange': '#F58220',
+                        'askesis-purple': '#6f42c1',
+                        'askesis-dark': '#1a202c', 
+                        'askesis-gray': '#2d3748', 
+                        'askesis-light-gray': '#edf2f7', 
+                        'askesis-text-dark': '#343a40',
+                        'askesis-text-body': '#4A5568', 
+                        'askesis-bg-light': '#f8f9fa',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #1a202c;
+            --askesis-gray: #2d3748;
+            --askesis-light-gray: #edf2f7;
+            --askesis-text-body: #4A5568;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-text-body);
+            background-color: var(--askesis-bg-light);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header and Navigation */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            background-color: transparent;
+        }
+        .main-header.scrolled {
+            background-color: var(--askesis-dark);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+        .nav-link {
+            color: white;
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            border-radius: 0.25rem;
+            font-weight: 600;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--askesis-orange);
+        }
+        .nav-cta-button {
+            background-color: var(--askesis-orange);
+            color: white !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.375rem;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+        }
+        .nav-cta-button:hover {
+            background-color: #d97019;
+            transform: scale(1.05);
+        }
+        
+        /* Scroll margin for fixed header */
+        .scroll-mt-header {
+            /* scroll-margin-top is set by JavaScript */
+        }
+
+        /* Page Sections */
+        .page-section {
+            padding: 5rem 1.5rem;
+        }
+        
+        #hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center;
+            background-size: cover;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        #quienes-somos { background-color: var(--askesis-light-gray); }
+        #planes { 
+            background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        #metodologia { background-color: var(--askesis-dark); color: var(--askesis-light-gray); }
+        #beneficios { background-color: var(--askesis-bg-white); }
+        #cta-final { background-color: var(--askesis-blue); color: white; }
+
+        .content-wrapper {
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .section-title-light {
+            font-family: 'Roboto', sans-serif;
+            color: white; 
+            font-size: 2.5em; 
+            font-weight: 900;
+            margin-bottom: 2.5rem; 
+            padding-bottom: 1rem; 
+            border-bottom: 4px solid var(--askesis-orange);
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .section-title-dark {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-dark); 
+            font-size: 2.5em; 
+            font-weight: 900;
+            margin-bottom: 2.5rem; 
+            padding-bottom: 1rem; 
+            border-bottom: 4px solid var(--askesis-orange);
+            text-align: center;
+            text-transform: uppercase;
+        }
+        #hero .hero-title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        #hero .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--askesis-light-gray);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-cta-button {
+            background-color: var(--askesis-orange);
+            color: white !important;
+            padding: 1rem 2.5rem;
+            border-radius: 0.375rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .hero-cta-button:hover {
+            background-color: #d97019;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .card-item {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+        .card-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+        #metodologia .card-item {
+            background-color: var(--askesis-gray);
+            color: var(--askesis-light-gray);
+        }
+        .card-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-blue);
+            font-size: 1.5em; 
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        #metodologia .card-title { color: white; }
+
+        .plan-card .plan-price {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.2em; 
+            font-weight: 900; 
+            color: var(--askesis-orange);
+            margin: 1rem 0;
+        }
+        .plan-card .plan-price .price-note {
+             font-size: 0.6em; 
+             font-weight: 400;
+             color: var(--askesis-text-body);
+        }
+        .plan-card .select-plan-btn {
+            display: block;
+            width: calc(100% - 2rem); 
+            margin: 1.5rem auto 1rem;
+            background-color: var(--askesis-blue);
+            color: white !important;
+            padding: 0.8rem 1rem;
+            border-radius: 0.375rem;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        .plan-card .select-plan-btn:hover {
+            background-color: #00487a;
+            transform: scale(1.03);
+        }
+        .plan-card.recommended .select-plan-btn { background-color: var(--askesis-green); }
+        .plan-card.recommended .select-plan-btn:hover { background-color: #00662c; }
+        .plan-card .recommended-tag {
+            background-color: var(--askesis-green);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 15px 0 15px 0;
+            font-size: 0.8rem;
+            font-weight: 700;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .plan-features { list-style: none; padding-left: 0; }
+        .plan-features li { 
+            padding-left: 1.5rem; 
+            position: relative; 
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .plan-features li::before {
+            content: '\f00c'; 
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--askesis-green);
+        }
+
+        .feature-card-qs {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .feature-card-qs:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .feature-card-qs .qs-icon {
+            font-size: 3rem;
+            color: var(--askesis-orange);
+            margin-bottom: 1rem;
+        }
+        .feature-card-qs .qs-title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.3em;
+            color: var(--askesis-blue);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .metodologia-step-card {
+            border-left: 4px solid var(--askesis-orange);
+            padding: 1.5rem;
+        }
+        .metodologia-step-card .step-number {
+            background-color: var(--askesis-orange);
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .beneficio-card .beneficio-icon {
+            font-size: 2.8rem;
+            color: var(--askesis-green);
+            margin-bottom: 1rem;
+        }
+        .beneficio-card .beneficio-title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.3em;
+            color: var(--askesis-blue);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        #cta-final .cta-text {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        #cta-final .cta-button-final {
+            background-color: var(--askesis-orange);
+            color: white !important;
+            padding: 1rem 2.5rem;
+            border-radius: 0.375rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        #cta-final .cta-button-final:hover {
+            background-color: #d97019;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background-color: var(--askesis-dark); 
+            color: #a0aec0; 
+            padding: 4rem 1rem 2rem; 
+            text-align: center;
+        }
+        footer .footer-logo { 
+            font-family: 'Roboto', sans-serif;
+            font-size: 2rem; 
+            font-weight: 900; 
+            color: white;
+            margin-bottom: 0.5rem; 
+            text-transform: uppercase;
+        }
+        footer .footer-tagline { font-size: 0.9rem; color: #718096; margin-bottom: 2rem;}
+        footer .footer-links a { color: #a0aec0; margin: 0 0.75rem; transition: color 0.3s; font-weight: 500;}
+        footer .footer-links a:hover { color: var(--askesis-orange); }
+        footer .social-links-footer a { color: #a0aec0; transition: color 0.3s, transform 0.3s; margin: 0 0.75rem; display: inline-block; }
+        footer .social-links-footer a:hover { color: var(--askesis-orange); transform: scale(1.2); }
+        footer .social-links-footer i { font-size: 1.5rem; }
+        footer .copyright-footer { font-size: 0.875rem; color: #718096; margin-top: 2.5rem; border-top: 1px solid #4A5568; padding-top: 1.5rem;}
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .scroll-mt-header { /* This will be set by JS */ }
+            #hero .hero-title { font-size: 2.2rem; /* Adjusted for mobile */ }
+            #hero .hero-subtitle { font-size: 1.1rem; /* Adjusted for mobile */ }
+            .section-title-light, .section-title-dark { font-size: 1.8em; /* Adjusted for mobile */ }
+            .main-header .container { padding-left: 1rem; padding-right: 1rem; }
+            .main-header nav.hidden.md\:flex { display: none !important; } /* Ensure nav is hidden on mobile */
+            .main-header nav { /* This was for the desktop nav, mobile is handled by #mobile-menu */ }
+        }
+
+    </style>
+</head>
+
+<body class="bg-askesis-bg-light">
+
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-between p-4">
+            <a href="#hero" class="text-3xl font-black text-white uppercase tracking-wider font-roboto">Askesis</a>
+            <nav class="hidden md:flex items-center">
+                <a href="#hero" class="nav-link active">Inicio</a>
+                <a href="#quienes-somos" class="nav-link">Quiénes Somos</a>
+                <a href="#planes" class="nav-link">Planes</a>
+                <a href="#metodologia" class="nav-link">Metodología</a>
+                <a href="#beneficios" class="nav-link">Beneficios</a>
+                <a href="#cta-final" class="nav-link">Contacto</a>
+                <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20sus%20servicios." target="_blank" class="nav-cta-button ml-4">Únete Ahora</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars fa-lg"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-askesis-dark">
+            <a href="#hero" class="block text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Inicio</a>
+            <a href="#quienes-somos" class="block text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Quiénes Somos</a>
+            <a href="#planes" class="block text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Planes</a>
+            <a href="#metodologia" class="block text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Metodología</a>
+            <a href="#beneficios" class="block text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Beneficios</a>
+            <a href="#cta-final" class="block text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Contacto</a>
+            <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20sus%20servicios." target="_blank" class="block text-askesis-orange text-center font-bold py-4 hover:bg-askesis-gray">Únete Ahora</a>
+        </div>
+    </header>
+    
+    <main>
+        <section id="hero" class="page-section scroll-mt-header">
+            <div class="content-wrapper px-4">
+                <h1 class="hero-title">Transforma Tu Físico. <span class="text-askesis-orange">Alcanza Tus Metas.</span></h1>
+                <p class="hero-subtitle">
+                    En Askesis, fusionamos la ciencia del ejercicio con un enfoque 100% personalizado para guiarte.
+                    Supera pruebas físicas, potencia tu rendimiento deportivo o construye un estilo de vida más fuerte y saludable.
+                </p>
+                <a href="#planes" class="hero-cta-button"><i class="fas fa-dumbbell mr-2"></i>Descubre Nuestros Planes</a>
+            </div>
+        </section>
+
+        <section id="quienes-somos" class="page-section scroll-mt-header">
+            <div class="content-wrapper">
+                <h2 class="section-title-dark"><i class="fas fa-users"></i>Quiénes Somos y Por Qué Elegirnos</h2>
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <p class="text-lg">Somos tu aliado estratégico en el camino hacia una mejor versión de ti mismo. En Askesis, la <strong class="text-askesis-blue">pasión por el movimiento</strong> se une con la <strong class="text-askesis-blue">rigurosidad científica</strong> para ofrecerte un servicio de entrenamiento personalizado que realmente marca la diferencia.</p>
+                    <p class="mt-4 text-lg">Dirigido por <strong class="text-askesis-orange">Luis Patricio Ruiz Ruiz</strong>, Técnico Deportivo especializado, nuestro compromiso es contigo, con tus metas y con tu bienestar integral.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="feature-card-qs">
+                        <i class="fas fa-microscope qs-icon"></i>
+                        <h3 class="qs-title">Enfoque Científico</h3>
+                        <p>Planes basados en evidencia, no en modas. Maximizamos tu progreso de forma segura y eficaz.</p>
+                    </div>
+                    <div class="feature-card-qs">
+                        <i class="fas fa-user-check qs-icon"></i>
+                        <h3 class="qs-title">100% Personalizado</h3>
+                        <p>Tu plan es único, diseñado para tus objetivos, tu cuerpo y tu ritmo de vida. No hay dos iguales.</p>
+                    </div>
+                    <div class="feature-card-qs">
+                        <i class="fas fa-headset qs-icon"></i>
+                        <h3 class="qs-title">Soporte Continuo</h3>
+                        <p>Estamos contigo en cada paso, resolviendo dudas, ajustando tu plan y motivándote a seguir.</p>
+                    </div>
+                    <div class="feature-card-qs">
+                        <i class="fas fa-shield-heart qs-icon"></i>
+                        <h3 class="qs-title">Prevención y Técnica</h3>
+                        <p>Priorizamos tu salud. Técnica impecable y progresión inteligente para evitar lesiones.</p>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+        <section id="planes" class="page-section scroll-mt-header">
+            <div class="content-wrapper">
+                <h2 class="section-title-dark"><i class="fas fa-tags"></i>Planes Diseñados Para Tu Éxito</h2>
+                <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Invierte en ti con la flexibilidad que necesitas. Todos nuestros planes incluyen evaluación detallada y una planificación meticulosa adaptada a tus metas.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="plan-card card-item flex flex-col">
+                        <div class="p-6 flex-grow">
+                            <h3 class="card-title text-center">Plan Mensual</h3>
+                            <p class="text-center text-sm mb-4">Ideal para iniciar y experimentar nuestro método con total flexibilidad.</p>
+                            <div class="plan-price text-center">$40.000<span class="price-note">CLP / Mes</span></div>
+                            <ul class="plan-features my-6">
+                                <li>Evaluación inicial completa</li>
+                                <li>Planificación mensual personalizada</li>
+                                <li>Seguimiento semanal (WhatsApp/Email)</li>
+                                <li>Ajustes continuos del plan</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20el%20Plan%20Mensual." target="_blank" class="select-plan-btn">Quiero el Plan Mensual</a>
+                    </div>
+                    <div class="plan-card card-item recommended flex flex-col relative">
+                        <div class="recommended-tag">Más Popular</div>
+                        <div class="p-6 flex-grow">
+                            <h3 class="card-title text-center">Plan Trimestral</h3>
+                            <p class="text-center text-sm mb-4">Compromiso a mediano plazo para resultados sólidos y un ahorro significativo.</p>
+                            <div class="plan-price text-center">$100.000<span class="price-note">CLP / Trimestre</span></div>
+                            <ul class="plan-features my-6">
+                                <li>Todo lo del Plan Mensual</li>
+                                <li class="font-semibold text-askesis-green">1 Videollamada de seguimiento/técnica al mes</li>
+                                <li class="font-semibold text-askesis-green">Prioridad en soporte</li>
+                                <li>Ahorro de $20.000 CLP</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20el%20Plan%20Trimestral." target="_blank" class="select-plan-btn">Quiero el Plan Trimestral</a>
+                    </div>
+                    <div class="plan-card card-item flex flex-col">
+                        <div class="p-6 flex-grow">
+                            <h3 class="card-title text-center">Sesión Única</h3>
+                            <p class="text-center text-sm mb-4">Evaluación exhaustiva, orientación específica o revisión de tu entrenamiento actual.</p>
+                            <div class="plan-price text-center">$20.000<span class="price-note">CLP / Sesión</span></div>
+                            <ul class="plan-features my-6">
+                                <li>Evaluación física y de historial</li>
+                                <li>Análisis detallado de objetivos</li>
+                                <li>Pautas generales de entrenamiento</li>
+                                <li>Recomendaciones de ajuste</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20Sesi%C3%B3n%20%C3%9Anica." target="_blank" class="select-plan-btn">Consultar Sesión</a>
+                    </div>
+                </div>
+                 <p class="text-center text-xs mt-8 text-askesis-text-body"><i>*Precios referenciales. Consulta por disponibilidad y detalles finales.</i></p>
+            </div>
+        </section>
+
+        <section id="metodologia" class="page-section scroll-mt-header">
+            <div class="content-wrapper">
+                <h2 class="section-title-light"><i class="fas fa-sitemap"></i>Nuestra Metodología Probada</h2>
+                <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Un proceso claro y estructurado, diseñado para llevarte desde tu punto actual hasta tus metas más ambiciosas.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="card-item metodologia-step-card">
+                        <div class="step-number">1</div>
+                        <h3 class="card-title">Diagnóstico Detallado</h3>
+                        <p class="text-sm">Análisis exhaustivo de tus metas, historial, capacidades y contexto para crear la base de tu plan.</p>
+                    </div>
+                    <div class="card-item metodologia-step-card">
+                        <div class="step-number">2</div>
+                        <h3 class="card-title">Planificación Estratégica</h3>
+                        <p class="text-sm">Diseño de un programa 100% personalizado, con ejercicios, progresiones y variables ajustadas a ti.</p>
+                    </div>
+                    <div class="card-item metodologia-step-card">
+                        <div class="step-number">3</div>
+                        <h3 class="card-title">Implementación y Soporte</h3>
+                        <p class="text-sm">Acompañamiento constante, feedback técnico y ajustes dinámicos para asegurar tu avance.</p>
+                    </div>
+                    <div class="card-item metodologia-step-card">
+                        <div class="step-number">4</div>
+                        <h3 class="card-title">Evolución Continua</h3>
+                        <p class="text-sm">Consolidamos tus logros y, si lo deseas, trazamos nuevas metas para seguir superando tus límites.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="beneficios" class="page-section scroll-mt-header">
+            <div class="content-wrapper">
+                <h2 class="section-title-dark"><i class="fas fa-award"></i>Beneficios Que Transforman</h2>
+                <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Con Askesis, no solo entrenas: inviertes en una mejora integral de tu calidad de vida y rendimiento.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card-item text-center p-8 beneficio-card">
+                        <i class="fas fa-map-signs beneficio-icon"></i>
+                        <h3 class="beneficio-title">Claridad y Dirección</h3>
+                        <p>Un plan preciso que te dice qué, cómo y por qué, optimizando cada minuto de tu esfuerzo.</p>
+                    </div>
+                    <div class="card-item text-center p-8 beneficio-card">
+                        <i class="fas fa-bullseye beneficio-icon"></i>
+                        <h3 class="beneficio-title">Resultados Medibles</h3>
+                        <p>Progreso tangible hacia tus metas, respaldado por la ciencia y un seguimiento detallado.</p>
+                    </div>
+                    <div class="card-item text-center p-8 beneficio-card">
+                        <i class="fas fa-shield-alt beneficio-icon"></i>
+                        <h3 class="beneficio-title">Entrenamiento Seguro</h3>
+                        <p>Minimiza el riesgo de lesiones con un enfoque en la técnica correcta y una progresión inteligente.</p>
+                    </div>
+                    <div class="card-item text-center p-8 beneficio-card">
+                        <i class="fas fa-fire beneficio-icon"></i>
+                        <h3 class="beneficio-title">Motivación Constante</h3>
+                        <p>El soporte cercano y ver tus avances mantendrán tu compromiso y energía al máximo.</p>
+                    </div>
+                    <div class="card-item text-center p-8 beneficio-card">
+                        <i class="fas fa-user-graduate beneficio-icon"></i>
+                        <h3 class="beneficio-title">Autonomía y Conocimiento</h3>
+                        <p>Aprende los fundamentos de tu entrenamiento, ganando confianza y herramientas para el futuro.</p>
+                    </div>
+                     <div class="card-item text-center p-8 beneficio-card">
+                        <i class="fas fa-heart-pulse beneficio-icon"></i>
+                        <h3 class="beneficio-title">Bienestar Integral</h3>
+                        <p>Más allá del físico, mejora tu energía, tu salud y tu relación con el movimiento y tu cuerpo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta-final" class="page-section scroll-mt-header">
+            <div class="content-wrapper text-center">
+                <h2 class="section-title-light"><i class="fas fa-paper-plane"></i>¿Listo/a Para Empezar Tu Transformación?</h2>
+                <p class="cta-text max-w-2xl mx-auto">
+                    No esperes más para invertir en ti. Da el primer paso hacia la versión más fuerte, saludable y capaz de ti mismo/a.
+                    Contáctame hoy y comencemos a diseñar tu camino al éxito.
+                </p>
+                <div class="mt-10">
+                    <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20listo/a%20para%20comenzar%20mi%20transformaci%C3%B3n." target="_blank" class="cta-button-final text-lg">
+                        <i class="fab fa-whatsapp mr-2"></i>¡Sí, Quiero Empezar!
+                    </a>
+                </div>
+                 <div class="mt-8 text-sm">
+                    <p>O envíame un email a: <a href="mailto:luistdu111@gmail.com" class="font-semibold text-askesis-orange hover:underline">luistdu111@gmail.com</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="content-wrapper">
+            <div class="footer-logo">Askesis</div>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <div class="mb-8 footer-links">
+                <a href="#hero">Inicio</a> |
+                <a href="#quienes-somos">Quiénes Somos</a> |
+                <a href="#planes">Planes</a> |
+                <a href="#metodologia">Metodología</a> |
+                <a href="#cta-final">Contacto</a>
+            </div>
+            <div class="coach-info-footer mb-6">
+                 <p class="text-lg font-semibold text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="social-links-footer flex justify-center space-x-6 mb-8">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20desde%20la%20web%20Askesis" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20tengo%20una%20consulta." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="#" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a> {/* Replace # with actual YouTube link */}
+            </div>
+            <p class="copyright-footer">© <span id="currentYearFooter"></span> Askesis. Todos los derechos reservados. Diseño inspirado y adaptado.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20necesito%20informaci%C3%B3n%20sobre%20sus%20planes." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const yearSpan = document.getElementById('currentYearFooter');
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            const header = document.querySelector('.main-header');
+            let headerHeight = 0; // Initialize header height
+
+            // Function to update header height and scroll margins
+            function updateHeaderCalculations() {
+                if (header) {
+                    headerHeight = header.offsetHeight;
+                }
+                const sectionsForScrollMargin = document.querySelectorAll('.scroll-mt-header');
+                sectionsForScrollMargin.forEach(section => {
+                    section.style.scrollMarginTop = `${headerHeight}px`;
+                });
+            }
+
+            // Initial calculation
+            updateHeaderCalculations();
+            // Recalculate on resize (e.g., if something in header changes height on resize)
+            window.addEventListener('resize', updateHeaderCalculations);
+
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    // Optional: Toggle icon if you have a close icon
+                    // mobileMenuButton.querySelector('i').classList.toggle('fa-bars');
+                    // mobileMenuButton.querySelector('i').classList.toggle('fa-times');
+                });
+            }
+
+            const navLinks = document.querySelectorAll('nav a.nav-link, #mobile-menu a.nav-link-mobile');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        if (link.classList.contains('nav-link-mobile') && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                        // Use scrollIntoView, browser will respect scroll-margin-top
+                        targetElement.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start" 
+                        });
+                    }
+                });
+            });
+
+            const sections = document.querySelectorAll('main > section[id]');
+            function setActiveLink() {
+                // Recalculate headerHeight in case it changed due to scroll/class changes,
+                // though for this specific header, its height is stable once loaded.
+                // If header height could change with 'scrolled' class, this would be more critical here.
+                // headerHeight = header.offsetHeight; // Potentially recalculate if needed
+
+                let currentActiveId = '';
+                for (let i = sections.length - 1; i >= 0; i--) {
+                    const section = sections[i];
+                    // Check if the top of the section is visible or above the trigger point
+                    // Trigger point is slightly below the bottom of the fixed header
+                    const triggerPoint = section.offsetTop - headerHeight - (window.innerHeight * 0.3); // Activate when 30% of section from top is visible
+
+                    if (window.scrollY >= triggerPoint) {
+                        currentActiveId = section.getAttribute('id');
+                        break; 
+                    }
+                }
+                
+                // If scrolled to the very top, or no section met the criteria above (e.g. very top of page)
+                if (window.scrollY < sections[0].offsetTop - headerHeight - (window.innerHeight * 0.3) ) {
+                     currentActiveId = sections[0].getAttribute('id'); // Default to the first section (hero)
+                }
+
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active', 'text-askesis-orange');
+                    if (link.getAttribute('href') === `#${currentActiveId}`) {
+                        link.classList.add('active', 'text-askesis-orange');
+                    }
+                });
+            }
+            
+            setActiveLink();
+            window.addEventListener('scroll', setActiveLink);
+        });
+    </script>
+
+</body>
+</html>
