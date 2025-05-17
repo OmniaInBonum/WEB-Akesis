@@ -18,11 +18,11 @@
                         'askesis-green': '#008037',
                         'askesis-orange': '#F58220',
                         'askesis-purple': '#6f42c1',
-                        'askesis-dark': '#1a202c', 
-                        'askesis-gray': '#2d3748', 
-                        'askesis-light-gray': '#edf2f7', 
+                        'askesis-dark': '#1a202c',
+                        'askesis-gray': '#2d3748',
+                        'askesis-light-gray': '#edf2f7',
                         'askesis-text-dark': '#343a40',
-                        'askesis-text-body': '#4A5568', 
+                        'askesis-text-body': '#4A5568',
                         'askesis-bg-light': '#f8f9fa',
                     },
                     fontFamily: {
@@ -43,6 +43,7 @@
             --askesis-gray: #2d3748;
             --askesis-light-gray: #edf2f7;
             --askesis-text-body: #4A5568;
+            --askesis-bg-white: #ffffff; /* Añadido para consistencia */
         }
 
         html { scroll-behavior: smooth; }
@@ -97,7 +98,7 @@
             background-color: #d97019;
             transform: scale(1.05);
         }
-        
+
         .scroll-mt-header {
             /* scroll-margin-top is set by JavaScript */
         }
@@ -105,7 +106,7 @@
         .page-section {
             padding: 5rem 1.5rem;
         }
-        
+
         #hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center;
             background-size: cover;
@@ -117,7 +118,7 @@
             text-align: center;
         }
         #quienes-somos { background-color: var(--askesis-light-gray); }
-        #planes { 
+        #planes {
             background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center;
             background-size: cover;
             background-attachment: fixed;
@@ -132,25 +133,25 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         .section-title-light {
             font-family: 'Roboto', sans-serif;
-            color: white; 
-            font-size: 2.5em; 
+            color: white;
+            font-size: 2.5em;
             font-weight: 900;
-            margin-bottom: 2.5rem; 
-            padding-bottom: 1rem; 
+            margin-bottom: 2.5rem;
+            padding-bottom: 1rem;
             border-bottom: 4px solid var(--askesis-orange);
             text-align: center;
             text-transform: uppercase;
         }
         .section-title-dark {
             font-family: 'Roboto', sans-serif;
-            color: var(--askesis-dark); 
-            font-size: 2.5em; 
+            color: var(--askesis-dark);
+            font-size: 2.5em;
             font-weight: 900;
-            margin-bottom: 2.5rem; 
-            padding-bottom: 1rem; 
+            margin-bottom: 2.5rem;
+            padding-bottom: 1rem;
             border-bottom: 4px solid var(--askesis-orange);
             text-align: center;
             text-transform: uppercase;
@@ -182,6 +183,7 @@
             text-transform: uppercase;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: inline-block; /* Asegura que el padding y centrado funcionen bien */
         }
         .hero-cta-button:hover {
             background-color: #d97019;
@@ -207,7 +209,7 @@
         .card-title {
             font-family: 'Roboto', sans-serif;
             color: var(--askesis-blue);
-            font-size: 1.5em; 
+            font-size: 1.5em;
             font-weight: 700;
             margin-bottom: 0.75rem;
         }
@@ -215,19 +217,19 @@
 
         .plan-card .plan-price {
             font-family: 'Roboto', sans-serif;
-            font-size: 2.2em; 
-            font-weight: 900; 
+            font-size: 2.2em;
+            font-weight: 900;
             color: var(--askesis-orange);
             margin: 1rem 0;
         }
         .plan-card .plan-price .price-note {
-             font-size: 0.6em; 
+             font-size: 0.6em;
              font-weight: 400;
              color: var(--askesis-text-body);
         }
         .plan-card .select-plan-btn {
             display: block;
-            width: calc(100% - 2rem); 
+            width: calc(100% - 2rem);
             margin: 1.5rem auto 1rem;
             background-color: var(--askesis-blue);
             color: white !important;
@@ -256,14 +258,14 @@
             right: 0;
         }
         .plan-features { list-style: none; padding-left: 0; }
-        .plan-features li { 
-            padding-left: 1.5rem; 
-            position: relative; 
+        .plan-features li {
+            padding-left: 1.5rem;
+            position: relative;
             margin-bottom: 0.5rem;
             font-size: 0.95rem;
         }
         .plan-features li::before {
-            content: '\f00c'; 
+            content: '\f00c';
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             position: absolute;
@@ -327,7 +329,7 @@
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
-        
+
         .guia-card {
             background-color: white;
             border-radius: 10px;
@@ -390,19 +392,19 @@
             background-color: #d97019;
             transform: scale(1.05);
         }
-        
+
         footer {
-            background-color: var(--askesis-dark); 
-            color: #a0aec0; 
-            padding: 4rem 1rem 2rem; 
+            background-color: var(--askesis-dark);
+            color: #a0aec0;
+            padding: 4rem 1rem 2rem;
             text-align: center;
         }
-        footer .footer-logo { 
+        footer .footer-logo {
             font-family: 'Roboto', sans-serif;
-            font-size: 2rem; 
-            font-weight: 900; 
+            font-size: 2rem;
+            font-weight: 900;
             color: white;
-            margin-bottom: 0.5rem; 
+            margin-bottom: 0.5rem;
             text-transform: uppercase;
         }
         footer .footer-tagline { font-size: 0.9rem; color: #718096; margin-bottom: 2rem;}
@@ -456,21 +458,45 @@
             display: inline; /* Show text on hover */
         }
         .whatsapp-float {
-            background-color: #25d366; 
+            background-color: #25d366;
         }
         .whatsapp-float:hover {
             background-color: #1ebe57;
         }
         .guias-float {
-            background-color: var(--askesis-orange); 
+            background-color: var(--askesis-orange);
         }
         .guias-float:hover {
-            background-color: #d97019; 
+            background-color: #d97019;
         }
 
         @media (max-width: 768px) {
-            #hero .hero-title { font-size: 2.2rem; }
-            #hero .hero-subtitle { font-size: 1.1rem; }
+            /* --- INICIO: Ajustes para la sección Hero en móviles --- */
+            #hero {
+                padding-top: 3rem;    /* Reducir padding vertical para #hero en móviles */
+                padding-bottom: 3rem;
+                padding-left: 1rem;   /* Asegurar un padding horizontal mínimo */
+                padding-right: 1rem;
+            }
+            #hero .hero-title {
+                font-size: 2.2rem;    /* Tamaño de fuente ajustado para el título */
+                margin-bottom: 0.75rem; /* Margen inferior reducido */
+            }
+            #hero .hero-subtitle {
+                font-size: 1.1rem;    /* Tamaño de fuente ajustado para el subtítulo */
+                margin-bottom: 1.5rem;  /* Margen inferior reducido */
+                max-width: 90%;       /* Limitar ancho para evitar que se extienda demasiado */
+            }
+            .hero-cta-button {      /* Ajustes para el botón principal del hero */
+                padding: 0.75rem 1rem; /* Padding horizontal y vertical ligeramente reducido */
+                font-size: 0.9rem;    /* Tamaño de fuente ligeramente reducido */
+                white-space: normal;  /* Permitir que el texto del botón se divida en dos líneas si es necesario */
+                line-height: 1.3;     /* Ajustar interlineado si el texto se divide */
+                max-width: 100%;      /* Asegurar que el botón no exceda el contenedor */
+                word-break: break-word; /* Ayuda a romper palabras largas si es estrictamente necesario */
+            }
+            /* --- FIN: Ajustes para la sección Hero en móviles --- */
+
             .section-title-light, .section-title-dark { font-size: 1.8em; }
             .main-header .container { padding-left: 1rem; padding-right: 1rem; }
             .main-header nav.hidden.md\:flex { display: none !important; }
@@ -519,7 +545,7 @@
             <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20sus%20servicios." target="_blank" class="block text-askesis-orange text-center font-bold py-4 hover:bg-askesis-gray">Únete Ahora</a>
         </div>
     </header>
-    
+
     <main>
         <section id="hero" class="page-section scroll-mt-header">
             <div class="content-wrapper px-4">
@@ -782,7 +808,7 @@
             if(yearSpan) yearSpan.textContent = new Date().getFullYear();
 
             const header = document.querySelector('.main-header');
-            let headerHeight = 0; 
+            let headerHeight = 0;
 
             function updateHeaderCalculations() {
                 if (header) {
@@ -817,10 +843,10 @@
                     mobileMenuIcon.classList.toggle('fa-times');
                 });
             }
-            
+
             // Combined Nav Links from different sources for consistent behavior
-            const allNavLinks = document.querySelectorAll('header nav a.nav-link, #mobile-menu a.nav-link-mobile, a.guias-float'); 
-            
+            const allNavLinks = document.querySelectorAll('header nav a.nav-link, #mobile-menu a.nav-link-mobile, a.guias-float');
+
             allNavLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     const targetId = link.getAttribute('href');
@@ -838,8 +864,15 @@
                             }
                             targetElement.scrollIntoView({
                                 behavior: "smooth",
-                                block: "start" 
+                                block: "start"
                             });
+                        }
+                    } else if (link.classList.contains('nav-link-mobile') && !mobileMenu.classList.contains('hidden')) {
+                        // If it's an external link in the mobile menu, still close the menu
+                        mobileMenu.classList.add('hidden');
+                        if (mobileMenuIcon) {
+                            mobileMenuIcon.classList.remove('fa-times');
+                            mobileMenuIcon.classList.add('fa-bars');
                         }
                     }
                 });
@@ -856,17 +889,16 @@
                 for (let i = sections.length - 1; i >= 0; i--) {
                     const section = sections[i];
                     const sectionTop = section.offsetTop - headerHeight;
-                    
+
                     // A section is active if its top is at or above the scroll position by a certain threshold
                     // This threshold helps in activating the link a bit before the section perfectly aligns
-                    // Used a positive offset (e.g., 100px or window.innerHeight * 0.3) to make it activate sooner when scrolling down
-                    // For scrolling up, it should also work correctly as we iterate from bottom.
-                    if (window.scrollY >= sectionTop - (window.innerHeight * 0.3) ) { 
+                    // Used a positive offset (e.g., window.innerHeight * 0.3) to make it activate sooner when scrolling down
+                    if (window.scrollY >= sectionTop - (window.innerHeight * 0.3) ) {
                         currentActiveId = section.getAttribute('id');
-                        break; 
+                        break;
                     }
                 }
-                
+
                 desktopNavLinks.forEach(link => {
                     link.classList.remove('active', 'text-askesis-orange');
                     if (link.getAttribute('href') === `#${currentActiveId}`) {
@@ -874,16 +906,17 @@
                     }
                 });
                 mobileNavLinksForActiveState.forEach(link => {
-                    link.classList.remove('text-askesis-orange', 'font-bold'); 
+                    link.classList.remove('text-askesis-orange', 'font-bold');
                      if (link.getAttribute('href') === `#${currentActiveId}`) {
                         link.classList.add('text-askesis-orange', 'font-bold');
                     }
                 });
             }
-            
+
             if (sections.length > 0) { // Only run if sections exist
                 setActiveLink();
                 window.addEventListener('scroll', setActiveLink);
+                window.addEventListener('resize', setActiveLink); // Also update on resize
             }
         });
     </script>
