@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Askesis - Entrenamiento Personalizado Basado en Ciencia</title>
-    <meta name="description" content="Transforma tu físico y alcanza tus metas con Askesis. Entrenamiento online personalizado, basado en ciencia y adaptado a ti.">
+    <meta name="description" content="Transforma tu físico y alcanza tus metas con Askesis. Entrenamiento online personalizado, guías gratuitas, basado en ciencia y adaptado a ti.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -98,12 +98,10 @@
             transform: scale(1.05);
         }
         
-        /* Scroll margin for fixed header */
         .scroll-mt-header {
             /* scroll-margin-top is set by JavaScript */
         }
 
-        /* Page Sections */
         .page-section {
             padding: 5rem 1.5rem;
         }
@@ -126,6 +124,7 @@
         }
         #metodologia { background-color: var(--askesis-dark); color: var(--askesis-light-gray); }
         #beneficios { background-color: var(--askesis-bg-white); }
+        #guias { background-color: var(--askesis-light-gray); }
         #cta-final { background-color: var(--askesis-blue); color: white; }
 
         .content-wrapper {
@@ -328,6 +327,49 @@
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
+        
+        .guia-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .guia-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .guia-card .guia-icon {
+            font-size: 3rem;
+            color: var(--askesis-green);
+            margin-bottom: 1rem;
+        }
+        .guia-card .guia-title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.25em;
+            color: var(--askesis-dark);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+        .guia-card .guia-button {
+            display: inline-block;
+            background-color: var(--askesis-green);
+            color: white !important;
+            padding: 0.7rem 1.5rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
+        .guia-card .guia-button:hover {
+            background-color: #005c2c;
+        }
 
         #cta-final .cta-text {
             font-size: 1.25rem;
@@ -371,36 +413,77 @@
         footer .social-links-footer i { font-size: 1.5rem; }
         footer .copyright-footer { font-size: 0.875rem; color: #718096; margin-top: 2.5rem; border-top: 1px solid #4A5568; padding-top: 1.5rem;}
 
-        .whatsapp-float {
+        /* Floating Buttons Enhanced */
+        .floating-btn-container { /* Container to stack buttons */
             position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+            bottom: 20px;
+            right: 20px;
             z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Space between stacked buttons */
+        }
+        .floating-btn {
+            width: 50px; /* Icon-only width */
+            height: 50px;
+            color: #FFF;
+            border-radius: 50%; /* Circular */
+            text-align: center;
+            font-size: 1.5rem; /* Icon size */
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease; /* Smooth transition for width and transform */
+            text-decoration: none;
+            overflow: hidden; /* Hide text initially */
+        }
+        .floating-btn .btn-text {
+            display: none; /* Text hidden by default */
+            margin-left: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+        .floating-btn:hover {
+            width: auto; /* Expand width on hover */
+            min-width: 50px; /* Ensure it doesn't collapse too much if text is short */
+            padding: 0 1rem; /* Padding when expanded */
+            border-radius: 25px; /* Pill shape on hover */
+            transform: scale(1.05); /* Slight scale effect */
+        }
+        .floating-btn:hover .btn-text {
+            display: inline; /* Show text on hover */
+        }
+        .whatsapp-float {
+            background-color: #25d366; 
         }
         .whatsapp-float:hover {
-            transform: scale(1.1);
+            background-color: #1ebe57;
+        }
+        .guias-float {
+            background-color: var(--askesis-orange); 
+        }
+        .guias-float:hover {
+            background-color: #d97019; 
         }
 
         @media (max-width: 768px) {
-            .scroll-mt-header { /* This will be set by JS */ }
-            #hero .hero-title { font-size: 2.2rem; /* Adjusted for mobile */ }
-            #hero .hero-subtitle { font-size: 1.1rem; /* Adjusted for mobile */ }
-            .section-title-light, .section-title-dark { font-size: 1.8em; /* Adjusted for mobile */ }
+            #hero .hero-title { font-size: 2.2rem; }
+            #hero .hero-subtitle { font-size: 1.1rem; }
+            .section-title-light, .section-title-dark { font-size: 1.8em; }
             .main-header .container { padding-left: 1rem; padding-right: 1rem; }
-            .main-header nav.hidden.md\:flex { display: none !important; } /* Ensure nav is hidden on mobile */
-            .main-header nav { /* This was for the desktop nav, mobile is handled by #mobile-menu */ }
+            .main-header nav.hidden.md\:flex { display: none !important; }
+            /* Floating buttons remain circular on mobile, text appears on hover if space allows (desktop-like hover) */
+        }
+         @media (max-width: 480px) {
+            /* On extra small screens, hover might be less common, but keep icon-only for less intrusion */
+            .floating-btn:hover { /* Still allow expansion if hovered, but might be less practical */
+                 padding: 0 0.8rem;
+            }
+             .floating-btn .btn-text {
+                 font-size: 0.8rem;
+             }
         }
 
     </style>
@@ -417,6 +500,7 @@
                 <a href="#planes" class="nav-link">Planes</a>
                 <a href="#metodologia" class="nav-link">Metodología</a>
                 <a href="#beneficios" class="nav-link">Beneficios</a>
+                <a href="#guias" class="nav-link">Guías Gratis</a>
                 <a href="#cta-final" class="nav-link">Contacto</a>
                 <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20sus%20servicios." target="_blank" class="nav-cta-button ml-4">Únete Ahora</a>
             </nav>
@@ -430,6 +514,7 @@
             <a href="#planes" class="block text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Planes</a>
             <a href="#metodologia" class="block text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Metodología</a>
             <a href="#beneficios" class="block text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Beneficios</a>
+            <a href="#guias" class="block text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Guías Gratis</a>
             <a href="#cta-final" class="block text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Contacto</a>
             <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20sus%20servicios." target="_blank" class="block text-askesis-orange text-center font-bold py-4 hover:bg-askesis-gray">Únete Ahora</a>
         </div>
@@ -452,7 +537,7 @@
                 <h2 class="section-title-dark"><i class="fas fa-users"></i>Quiénes Somos y Por Qué Elegirnos</h2>
                 <div class="text-center max-w-3xl mx-auto mb-12">
                     <p class="text-lg">Somos tu aliado estratégico en el camino hacia tu mejor versión. En Askesis, la <strong class="text-askesis-blue">pasión por el movimiento</strong> se une con la <strong class="text-askesis-blue">rigurosidad científica</strong> para ofrecerte un servicio de entrenamiento personalizado que realmente marca la diferencia.</p>
-                    <p class="mt-4 text-lg">Dirigido por <strong class="text-askesis-orange">Luis Patricio Ruiz Ruiz</strong>, Técnico Deportivo y Atleta especializado, nuestro compromiso es contigo, con tus metas y con tu bienestar integral.</p>
+                    <p class="mt-4 text-lg">Dirigido por <strong class="text-askesis-orange">Luis Patricio Ruiz Ruiz</strong>, Técnico Deportivo especializado, nuestro compromiso es contigo, con tus metas y con tu bienestar integral.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="feature-card-qs">
@@ -600,6 +685,42 @@
             </div>
         </section>
 
+        <section id="guias" class="page-section scroll-mt-header">
+            <div class="content-wrapper">
+                <h2 class="section-title-dark"><i class="fas fa-book-open"></i>Guías Gratuitas Para Potenciar Tu Progreso</h2>
+                <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Accede a material exclusivo diseñado para complementar tu entrenamiento y acelerar tus resultados. ¡Totalmente gratis!</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="guia-card">
+                        <div>
+                            <i class="fas fa-key guia-icon"></i>
+                            <h3 class="guia-title">3 Pilares Clave para Tu Progreso</h3>
+                        </div>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Gratuita%20-%203%20Pilares%20Clave%20para%20Tu%20Progreso.html" target="_blank" class="guia-button">
+                            <i class="fas fa-external-link-alt mr-2"></i>Ver Guía
+                        </a>
+                    </div>
+                    <div class="guia-card">
+                        <div>
+                            <i class="fas fa-running guia-icon"></i>
+                            <h3 class="guia-title">Guía Entrenamiento Excéntrico</h3>
+                        </div>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Guia%20Entrenamiento%20Excentrico.html" target="_blank" class="guia-button">
+                            <i class="fas fa-external-link-alt mr-2"></i>Ver Guía
+                        </a>
+                    </div>
+                    <div class="guia-card">
+                        <div>
+                            <i class="fas fa-fire-alt guia-icon"></i>
+                            <h3 class="guia-title">Guía Gratuita - Calentamiento</h3>
+                        </div>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Guia%20Gratuita%20-%20Calentamiento.html" target="_blank" class="guia-button">
+                            <i class="fas fa-external-link-alt mr-2"></i>Ver Guía
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="cta-final" class="page-section scroll-mt-header">
             <div class="content-wrapper text-center">
                 <h2 class="section-title-light"><i class="fas fa-paper-plane"></i>¿Listo/a Para Empezar Tu Transformación?</h2>
@@ -628,6 +749,7 @@
                 <a href="#quienes-somos">Quiénes Somos</a> |
                 <a href="#planes">Planes</a> |
                 <a href="#metodologia">Metodología</a> |
+                <a href="#guias">Guías</a> |
                 <a href="#cta-final">Contacto</a>
             </div>
             <div class="coach-info-footer mb-6">
@@ -638,15 +760,21 @@
                  <a href="mailto:luistdu111@gmail.com?subject=Consulta%20desde%20la%20web%20Askesis" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
                  <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20tengo%20una%20consulta." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
                  <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
-                 <a href="#" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a> {/* Replace # with actual YouTube link */}
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
             </div>
             <p class="copyright-footer">© <span id="currentYearFooter"></span> Askesis. Todos los derechos reservados. Diseño inspirado y adaptado.</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20necesito%20informaci%C3%B3n%20sobre%20sus%20planes." class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <div class="floating-btn-container">
+        <a href="#guias" class="floating-btn guias-float" title="Ver Guías Gratuitas">
+            <i class="fas fa-book-open"></i> <span class="btn-text">Guías</span>
+        </a>
+        <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20necesito%20informaci%C3%B3n%20sobre%20sus%20planes." class="floating-btn whatsapp-float" target="_blank" title="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp"></i> <span class="btn-text">WhatsApp</span>
+        </a>
+    </div>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -654,9 +782,8 @@
             if(yearSpan) yearSpan.textContent = new Date().getFullYear();
 
             const header = document.querySelector('.main-header');
-            let headerHeight = 0; // Initialize header height
+            let headerHeight = 0; 
 
-            // Function to update header height and scroll margins
             function updateHeaderCalculations() {
                 if (header) {
                     headerHeight = header.offsetHeight;
@@ -667,9 +794,7 @@
                 });
             }
 
-            // Initial calculation
             updateHeaderCalculations();
-            // Recalculate on resize (e.g., if something in header changes height on resize)
             window.addEventListener('resize', updateHeaderCalculations);
 
 
@@ -683,72 +808,83 @@
 
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenuButton && mobileMenu) {
+            const mobileMenuIcon = mobileMenuButton ? mobileMenuButton.querySelector('i') : null;
+
+            if (mobileMenuButton && mobileMenu && mobileMenuIcon) {
                 mobileMenuButton.addEventListener('click', () => {
                     mobileMenu.classList.toggle('hidden');
-                    // Optional: Toggle icon if you have a close icon
-                    // mobileMenuButton.querySelector('i').classList.toggle('fa-bars');
-                    // mobileMenuButton.querySelector('i').classList.toggle('fa-times');
+                    mobileMenuIcon.classList.toggle('fa-bars');
+                    mobileMenuIcon.classList.toggle('fa-times');
                 });
             }
-
-            const navLinks = document.querySelectorAll('nav a.nav-link, #mobile-menu a.nav-link-mobile');
             
-            navLinks.forEach(link => {
+            // Combined Nav Links from different sources for consistent behavior
+            const allNavLinks = document.querySelectorAll('header nav a.nav-link, #mobile-menu a.nav-link-mobile, a.guias-float'); 
+            
+            allNavLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
-                    e.preventDefault();
                     const targetId = link.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
+                    if (targetId && targetId.startsWith('#')) {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(targetId);
 
-                    if (targetElement) {
-                        if (link.classList.contains('nav-link-mobile') && !mobileMenu.classList.contains('hidden')) {
-                            mobileMenu.classList.add('hidden');
+                        if (targetElement) {
+                            if (link.classList.contains('nav-link-mobile') && !mobileMenu.classList.contains('hidden')) {
+                                mobileMenu.classList.add('hidden');
+                                if (mobileMenuIcon) { // Ensure icon exists
+                                    mobileMenuIcon.classList.remove('fa-times');
+                                    mobileMenuIcon.classList.add('fa-bars');
+                                }
+                            }
+                            targetElement.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start" 
+                            });
                         }
-                        // Use scrollIntoView, browser will respect scroll-margin-top
-                        targetElement.scrollIntoView({
-                            behavior: "smooth",
-                            block: "start" 
-                        });
                     }
                 });
             });
 
             const sections = document.querySelectorAll('main > section[id]');
-            function setActiveLink() {
-                // Recalculate headerHeight in case it changed due to scroll/class changes,
-                // though for this specific header, its height is stable once loaded.
-                // If header height could change with 'scrolled' class, this would be more critical here.
-                // headerHeight = header.offsetHeight; // Potentially recalculate if needed
+            const desktopNavLinks = document.querySelectorAll('header nav a.nav-link'); // Only desktop for active state
+            const mobileNavLinksForActiveState = document.querySelectorAll('#mobile-menu a.nav-link-mobile');
 
-                let currentActiveId = '';
+
+            function setActiveLink() {
+                let currentActiveId = sections.length > 0 ? sections[0].getAttribute('id') : ''; // Default to first section if any
+
                 for (let i = sections.length - 1; i >= 0; i--) {
                     const section = sections[i];
-                    // Check if the top of the section is visible or above the trigger point
-                    // Trigger point is slightly below the bottom of the fixed header
-                    const triggerPoint = section.offsetTop - headerHeight - (window.innerHeight * 0.3); // Activate when 30% of section from top is visible
-
-                    if (window.scrollY >= triggerPoint) {
+                    const sectionTop = section.offsetTop - headerHeight;
+                    
+                    // A section is active if its top is at or above the scroll position by a certain threshold
+                    // This threshold helps in activating the link a bit before the section perfectly aligns
+                    // Used a positive offset (e.g., 100px or window.innerHeight * 0.3) to make it activate sooner when scrolling down
+                    // For scrolling up, it should also work correctly as we iterate from bottom.
+                    if (window.scrollY >= sectionTop - (window.innerHeight * 0.3) ) { 
                         currentActiveId = section.getAttribute('id');
                         break; 
                     }
                 }
                 
-                // If scrolled to the very top, or no section met the criteria above (e.g. very top of page)
-                if (window.scrollY < sections[0].offsetTop - headerHeight - (window.innerHeight * 0.3) ) {
-                     currentActiveId = sections[0].getAttribute('id'); // Default to the first section (hero)
-                }
-
-
-                navLinks.forEach(link => {
+                desktopNavLinks.forEach(link => {
                     link.classList.remove('active', 'text-askesis-orange');
                     if (link.getAttribute('href') === `#${currentActiveId}`) {
                         link.classList.add('active', 'text-askesis-orange');
                     }
                 });
+                mobileNavLinksForActiveState.forEach(link => {
+                    link.classList.remove('text-askesis-orange', 'font-bold'); 
+                     if (link.getAttribute('href') === `#${currentActiveId}`) {
+                        link.classList.add('text-askesis-orange', 'font-bold');
+                    }
+                });
             }
             
-            setActiveLink();
-            window.addEventListener('scroll', setActiveLink);
+            if (sections.length > 0) { // Only run if sections exist
+                setActiveLink();
+                window.addEventListener('scroll', setActiveLink);
+            }
         });
     </script>
 
