@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Askesis - Entrenamiento Personalizado Basado en Ciencia</title>
-    <meta name="description" content="Transforma tu físico y alcanza tus metas con Askesis. Entrenamiento online personalizado, guías gratuitas, basado en ciencia y adaptado a ti.">
+    <meta name="description" content="Transforma tu físico y alcanza tus metas con Askesis. Entrenamiento online personalizado, guías gratuitas y adaptado a ti.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -17,7 +17,8 @@
                         'askesis-blue': '#005A9C',
                         'askesis-green': '#008037',
                         'askesis-orange': '#F58220',
-                        'askesis-purple': '#6f42c1',
+                        'askesis-purple': '#6f42c1', // Color para GAP si se decide usar
+                        'askesis-calisthenics-orange': '#f39c12', // Color para Calistenia si se decide usar
                         'askesis-dark': '#1a202c',
                         'askesis-gray': '#2d3748',
                         'askesis-light-gray': '#edf2f7',
@@ -39,6 +40,8 @@
             --askesis-blue: #005A9C;
             --askesis-green: #008037;
             --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1; /* Color para GAP si se decide usar */
+            --askesis-calisthenics-orange: #f39c12; /* Color para Calistenia si se decide usar */
             --askesis-dark: #1a202c;
             --askesis-gray: #2d3748;
             --askesis-light-gray: #edf2f7;
@@ -196,7 +199,9 @@
             border-radius: 12px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            overflow: hidden;
+            overflow: hidden; /* Evita que el contenido desborde las esquinas redondeadas */
+            display: flex; /* Usado para que el botón se alinee abajo */
+            flex-direction: column; /* Usado para que el botón se alinee abajo */
         }
         .card-item:hover {
             transform: translateY(-10px);
@@ -215,6 +220,11 @@
         }
         #metodologia .card-title { color: white; }
 
+        .plan-card .plan-content { /* Contenedor para el contenido que crece */
+            flex-grow: 1;
+            padding: 1.5rem; /* p-6 */
+        }
+
         .plan-card .plan-price {
             font-family: 'Roboto', sans-serif;
             font-size: 2.2em;
@@ -229,8 +239,8 @@
         }
         .plan-card .select-plan-btn {
             display: block;
-            width: calc(100% - 2rem);
-            margin: 1.5rem auto 1rem;
+            width: calc(100% - 3rem); /* Ajustado para el padding de plan-content */
+            margin: 0 auto 1.5rem auto; /* Margen inferior y centrado */
             background-color: var(--askesis-blue);
             color: white !important;
             padding: 0.8rem 1rem;
@@ -241,16 +251,30 @@
             transition: all 0.3s ease;
         }
         .plan-card .select-plan-btn:hover {
-            background-color: #00487a;
+            background-color: #00487a; /* Azul más oscuro */
             transform: scale(1.03);
         }
-        .plan-card.recommended .select-plan-btn { background-color: var(--askesis-green); }
-        .plan-card.recommended .select-plan-btn:hover { background-color: #00662c; }
+        .plan-card.recommended .select-plan-btn,
+        .plan-card .btn-askesis-green { /* Clase para botón verde */
+            background-color: var(--askesis-green);
+        }
+        .plan-card.recommended .select-plan-btn:hover,
+        .plan-card .btn-askesis-green:hover {
+            background-color: #00662c; /* Verde más oscuro */
+        }
+        .plan-card .btn-askesis-blue { /* Clase para botón azul (por defecto ya es azul) */
+             background-color: var(--askesis-blue);
+        }
+        .plan-card .btn-askesis-blue:hover {
+             background-color: #00487a; /* Azul más oscuro */
+        }
+
+
         .plan-card .recommended-tag {
             background-color: var(--askesis-green);
             color: white;
             padding: 0.3rem 1rem;
-            border-radius: 15px 0 15px 0;
+            border-radius: 15px 0 15px 0; /* Ajustado para que quede en la esquina */
             font-size: 0.8rem;
             font-weight: 700;
             position: absolute;
@@ -265,12 +289,12 @@
             font-size: 0.95rem;
         }
         .plan-features li::before {
-            content: '\f00c';
+            content: '\f00c'; /* Icono de check de Font Awesome */
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             position: absolute;
             left: 0;
-            top: 4px;
+            top: 4px; /* Ajuste vertical del ícono */
             color: var(--askesis-green);
         }
 
@@ -563,7 +587,7 @@
                 <h2 class="section-title-dark"><i class="fas fa-users"></i>Quiénes Somos y Por Qué Elegirnos</h2>
                 <div class="text-center max-w-3xl mx-auto mb-12">
                     <p class="text-lg">Somos tu aliado estratégico en el camino hacia tu mejor versión. En Askesis, la <strong class="text-askesis-blue">pasión por el movimiento</strong> se une con la <strong class="text-askesis-blue">rigurosidad científica</strong> para ofrecerte un servicio de entrenamiento personalizado que realmente marca la diferencia.</p>
-                    <p class="mt-4 text-lg">Dirigido por <strong class="text-askesis-orange">Luis Patricio Ruiz Ruiz</strong>, Técnico Deportivo especializado, nuestro compromiso es contigo, con tus metas y con tu bienestar integral.</p>
+                    <p class="mt-4 text-lg">Dirigido por <strong class="text-askesis-orange">Luis Patricio Ruiz Ruiz</strong>, Técnico Deportivo y atleta especializado, nuestro compromiso es contigo, con tus metas y con tu bienestar integral.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="feature-card-qs">
@@ -595,8 +619,8 @@
                 <h2 class="section-title-dark"><i class="fas fa-tags"></i>Planes Diseñados Para Tu Éxito</h2>
                 <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Invierte en ti con la flexibilidad que necesitas. Todos nuestros planes incluyen evaluación detallada y una planificación meticulosa adaptada a tus metas.</p>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="plan-card card-item flex flex-col">
-                        <div class="p-6 flex-grow">
+                    <div class="plan-card card-item">
+                        <div class="plan-content">
                             <h3 class="card-title text-center">Plan Mensual</h3>
                             <p class="text-center text-sm mb-4">Ideal para iniciar y experimentar nuestro método con total flexibilidad.</p>
                             <div class="plan-price text-center">$40.000<span class="price-note">CLP / Mes</span></div>
@@ -607,11 +631,12 @@
                                 <li>Ajustes continuos del plan</li>
                             </ul>
                         </div>
-                        <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20el%20Plan%20Mensual." target="_blank" class="select-plan-btn">Quiero el Plan Mensual</a>
+                        <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20el%20Plan%20Mensual." target="_blank" class="select-plan-btn btn-askesis-blue"><i class="fab fa-whatsapp mr-2"></i>Quiero el Plan Mensual</a>
                     </div>
-                    <div class="plan-card card-item recommended flex flex-col relative">
+
+                    <div class="plan-card card-item recommended relative">
                         <div class="recommended-tag">Más Popular</div>
-                        <div class="p-6 flex-grow">
+                        <div class="plan-content">
                             <h3 class="card-title text-center">Plan Trimestral</h3>
                             <p class="text-center text-sm mb-4">Compromiso a mediano plazo para resultados sólidos y un ahorro significativo.</p>
                             <div class="plan-price text-center">$100.000<span class="price-note">CLP / Trimestre</span></div>
@@ -622,10 +647,11 @@
                                 <li>Ahorro de $20.000 CLP</li>
                             </ul>
                         </div>
-                        <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20el%20Plan%20Trimestral." target="_blank" class="select-plan-btn">Quiero el Plan Trimestral</a>
+                        <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20el%20Plan%20Trimestral." target="_blank" class="select-plan-btn btn-askesis-green"><i class="fab fa-whatsapp mr-2"></i>Quiero el Plan Trimestral</a>
                     </div>
-                    <div class="plan-card card-item flex flex-col">
-                        <div class="p-6 flex-grow">
+
+                    <div class="plan-card card-item">
+                        <div class="plan-content">
                             <h3 class="card-title text-center">Sesión Única</h3>
                             <p class="text-center text-sm mb-4">Evaluación exhaustiva, orientación específica o revisión de tu entrenamiento actual.</p>
                             <div class="plan-price text-center">$20.000<span class="price-note">CLP / Sesión</span></div>
@@ -636,10 +662,59 @@
                                 <li>Recomendaciones de ajuste</li>
                             </ul>
                         </div>
-                        <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20Sesi%C3%B3n%20%C3%9Anica." target="_blank" class="select-plan-btn">Consultar Sesión</a>
+                        <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20Sesi%C3%B3n%20%C3%9Anica." target="_blank" class="select-plan-btn btn-askesis-blue"><i class="fab fa-whatsapp mr-2"></i>Consultar Sesión</a>
+                    </div>
+
+                    <div class="plan-card card-item">
+                        <div class="plan-content">
+                            <h3 class="card-title text-center">Programa Transformación Total</h3>
+                            <p class="text-center text-sm mb-4">Ideal para hombres buscando maximizar músculo, fuerza Y potencia (12-16 Semanas).</p>
+                            <ul class="plan-features my-6">
+                                <li><strong>Bloque 1:</strong> Arquitectura Muscular (Hipertrofia).</li>
+                                <li><strong>Bloque 2:</strong> Dominio de Cargas (Fuerza Máxima).</li>
+                                <li><strong>Bloque 3:</strong> Desarrollo de Potencia.</li>
+                                <li>Planificación detallada y evaluación inicial.</li>
+                                <li>Seguimiento y soporte directo.</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20quiero%20m%C3%A1s%20info%20sobre%20el%20Programa%20Transformaci%C3%B3n%20Total%20(3%20Bloques)." target="_blank" class="select-plan-btn btn-askesis-green"><i class="fab fa-whatsapp mr-2"></i>Más Info (3 Bloques)</a>
+                    </div>
+
+                    <div class="plan-card card-item">
+                        <div class="plan-content">
+                            <h3 class="card-title text-center">Programa GAP Femenino</h3>
+                            <p class="text-center text-sm mb-4">Ideal para mujeres buscando fortalecer y definir Glúteos, Abdomen y Piernas.</p>
+                            <ul class="plan-features my-6">
+                                <li>Ejercicios seleccionados para máximo estímulo en GAP.</li>
+                                <li>Énfasis en técnica y conexión mente-músculo.</li>
+                                <li>Progresión adaptada para tonificación y fuerza funcional.</li>
+                                <li>Mejora de postura y estabilidad del core.</li>
+                                <li>Planificación GAP, evaluación y soporte.</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20quiero%20m%C3%A1s%20info%20sobre%20el%20Programa%20GAP%20Femenino." target="_blank" class="select-plan-btn btn-askesis-blue">
+                            <i class="fab fa-whatsapp mr-2"></i>Más Info (GAP)
+                        </a>
+                    </div>
+
+                    <div class="plan-card card-item">
+                        <div class="plan-content">
+                            <h3 class="card-title text-center">Programa Iniciación Calistenia</h3>
+                            <p class="text-center text-sm mb-4">Principiantes (hombres/mujeres) queriendo dominar su peso corporal (3 Meses).</p>
+                            <ul class="plan-features my-6">
+                                <li>Logra tus primeras dominadas y 20 flexiones estrictas.</li>
+                                <li>Desarrolla un L-Sit sólido.</li>
+                                <li>Progresiones claras y seguras paso a paso.</li>
+                                <li>Fortalecimiento del core y estabilizadores.</li>
+                                <li>Planificación de 3 meses, evaluación y soporte.</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20quiero%20m%C3%A1s%20info%20sobre%20el%20Programa%20de%20Iniciaci%C3%B3n%20a%20la%20Calistenia." target="_blank" class="select-plan-btn btn-askesis-blue">
+                            <i class="fab fa-whatsapp mr-2"></i>Más Info (Calistenia)
+                        </a>
                     </div>
                 </div>
-                 <p class="text-center text-xs mt-8 text-askesis-text-body"><i>*Precios referenciales. Consulta por disponibilidad y detalles finales.</i></p>
+                 <p class="text-center text-xs mt-8 text-askesis-text-body"><i>*Precios referenciales para planes Mensual, Trimestral y Sesión Única. Consulta por detalles y precios de Programas Específicos.</i></p>
             </div>
         </section>
 
