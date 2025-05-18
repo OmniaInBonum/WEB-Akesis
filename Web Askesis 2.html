@@ -186,7 +186,7 @@
             text-transform: uppercase;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            display: inline-block; /* Asegura que el padding y centrado funcionen bien */
+            display: inline-block; 
         }
         .hero-cta-button:hover {
             background-color: #d97019;
@@ -199,9 +199,9 @@
             border-radius: 12px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            overflow: hidden; /* Evita que el contenido desborde las esquinas redondeadas */
-            display: flex; /* Usado para que el botón se alinee abajo */
-            flex-direction: column; /* Usado para que el botón se alinee abajo */
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column; 
         }
         .card-item:hover {
             transform: translateY(-10px);
@@ -220,9 +220,9 @@
         }
         #metodologia .card-title { color: white; }
 
-        .plan-card .plan-content { /* Contenedor para el contenido que crece */
+        .plan-card .plan-content { 
             flex-grow: 1;
-            padding: 1.5rem; /* p-6 */
+            padding: 1.5rem; 
         }
 
         .plan-card .plan-price {
@@ -239,8 +239,8 @@
         }
         .plan-card .select-plan-btn {
             display: block;
-            width: calc(100% - 3rem); /* Ajustado para el padding de plan-content */
-            margin: 0 auto 1.5rem auto; /* Margen inferior y centrado */
+            width: calc(100% - 3rem); 
+            margin: 0 auto 1.5rem auto; 
             background-color: var(--askesis-blue);
             color: white !important;
             padding: 0.8rem 1rem;
@@ -251,22 +251,22 @@
             transition: all 0.3s ease;
         }
         .plan-card .select-plan-btn:hover {
-            background-color: #00487a; /* Azul más oscuro */
+            background-color: #00487a; 
             transform: scale(1.03);
         }
         .plan-card.recommended .select-plan-btn,
-        .plan-card .btn-askesis-green { /* Clase para botón verde */
+        .plan-card .btn-askesis-green { 
             background-color: var(--askesis-green);
         }
         .plan-card.recommended .select-plan-btn:hover,
         .plan-card .btn-askesis-green:hover {
-            background-color: #00662c; /* Verde más oscuro */
+            background-color: #00662c; 
         }
-        .plan-card .btn-askesis-blue { /* Clase para botón azul (por defecto ya es azul) */
+        .plan-card .btn-askesis-blue { 
              background-color: var(--askesis-blue);
         }
         .plan-card .btn-askesis-blue:hover {
-             background-color: #00487a; /* Azul más oscuro */
+             background-color: #00487a; 
         }
 
 
@@ -274,7 +274,7 @@
             background-color: var(--askesis-green);
             color: white;
             padding: 0.3rem 1rem;
-            border-radius: 15px 0 15px 0; /* Ajustado para que quede en la esquina */
+            border-radius: 15px 0 15px 0; 
             font-size: 0.8rem;
             font-weight: 700;
             position: absolute;
@@ -289,12 +289,12 @@
             font-size: 0.95rem;
         }
         .plan-features li::before {
-            content: '\f00c'; /* Icono de check de Font Awesome */
+            content: '\f00c'; 
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             position: absolute;
             left: 0;
-            top: 4px; /* Ajuste vertical del ícono */
+            top: 4px; 
             color: var(--askesis-green);
         }
 
@@ -440,46 +440,46 @@
         footer .copyright-footer { font-size: 0.875rem; color: #718096; margin-top: 2.5rem; border-top: 1px solid #4A5568; padding-top: 1.5rem;}
 
         /* Floating Buttons Enhanced */
-        .floating-btn-container { /* Container to stack buttons */
+        .floating-btn-container { 
             position: fixed;
             bottom: 20px;
             right: 20px;
             z-index: 100;
             display: flex;
             flex-direction: column;
-            gap: 10px; /* Space between stacked buttons */
+            gap: 10px; 
         }
         .floating-btn {
-            width: 50px; /* Icon-only width */
+            width: 50px; 
             height: 50px;
             color: #FFF;
-            border-radius: 50%; /* Circular */
+            border-radius: 50%; 
             text-align: center;
-            font-size: 1.5rem; /* Icon size */
+            font-size: 1.5rem; 
             box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease; /* Smooth transition for width and transform */
+            transition: all 0.3s ease; 
             text-decoration: none;
-            overflow: hidden; /* Hide text initially */
+            overflow: hidden; 
         }
         .floating-btn .btn-text {
-            display: none; /* Text hidden by default */
+            display: none; 
             margin-left: 0.5rem;
             font-size: 0.9rem;
             font-weight: 600;
-            white-space: nowrap; /* Prevent text wrapping */
+            white-space: nowrap; 
         }
         .floating-btn:hover {
-            width: auto; /* Expand width on hover */
-            min-width: 50px; /* Ensure it doesn't collapse too much if text is short */
-            padding: 0 1rem; /* Padding when expanded */
-            border-radius: 25px; /* Pill shape on hover */
-            transform: scale(1.05); /* Slight scale effect */
+            width: auto; 
+            min-width: 50px; 
+            padding: 0 1rem; 
+            border-radius: 25px; 
+            transform: scale(1.05); 
         }
         .floating-btn:hover .btn-text {
-            display: inline; /* Show text on hover */
+            display: inline; 
         }
         .whatsapp-float {
             background-color: #25d366;
@@ -495,40 +495,35 @@
         }
 
         @media (max-width: 768px) {
-            /* --- INICIO: Ajustes para la sección Hero en móviles --- */
             #hero {
-                padding-top: 3rem;    /* Reducir padding vertical para #hero en móviles */
+                padding-top: 3rem;    
                 padding-bottom: 3rem;
-                padding-left: 1rem;   /* Asegurar un padding horizontal mínimo */
+                padding-left: 1rem;   
                 padding-right: 1rem;
             }
             #hero .hero-title {
-                font-size: 2.2rem;    /* Tamaño de fuente ajustado para el título */
-                margin-bottom: 0.75rem; /* Margen inferior reducido */
+                font-size: 2.2rem;    
+                margin-bottom: 0.75rem; 
             }
             #hero .hero-subtitle {
-                font-size: 1.1rem;    /* Tamaño de fuente ajustado para el subtítulo */
-                margin-bottom: 1.5rem;  /* Margen inferior reducido */
-                max-width: 90%;       /* Limitar ancho para evitar que se extienda demasiado */
+                font-size: 1.1rem;    
+                margin-bottom: 1.5rem;  
+                max-width: 90%;       
             }
-            .hero-cta-button {      /* Ajustes para el botón principal del hero */
-                padding: 0.75rem 1rem; /* Padding horizontal y vertical ligeramente reducido */
-                font-size: 0.9rem;    /* Tamaño de fuente ligeramente reducido */
-                white-space: normal;  /* Permitir que el texto del botón se divida en dos líneas si es necesario */
-                line-height: 1.3;     /* Ajustar interlineado si el texto se divide */
-                max-width: 100%;      /* Asegurar que el botón no exceda el contenedor */
-                word-break: break-word; /* Ayuda a romper palabras largas si es estrictamente necesario */
+            .hero-cta-button {      
+                padding: 0.75rem 1rem; 
+                font-size: 0.9rem;    
+                white-space: normal;  
+                line-height: 1.3;     
+                max-width: 100%;      
+                word-break: break-word; 
             }
-            /* --- FIN: Ajustes para la sección Hero en móviles --- */
-
             .section-title-light, .section-title-dark { font-size: 1.8em; }
             .main-header .container { padding-left: 1rem; padding-right: 1rem; }
             .main-header nav.hidden.md\:flex { display: none !important; }
-            /* Floating buttons remain circular on mobile, text appears on hover if space allows (desktop-like hover) */
         }
          @media (max-width: 480px) {
-            /* On extra small screens, hover might be less common, but keep icon-only for less intrusion */
-            .floating-btn:hover { /* Still allow expansion if hovered, but might be less practical */
+            .floating-btn:hover { 
                  padding: 0 0.8rem;
             }
              .floating-btn .btn-text {
@@ -919,7 +914,6 @@
                 });
             }
 
-            // Combined Nav Links from different sources for consistent behavior
             const allNavLinks = document.querySelectorAll('header nav a.nav-link, #mobile-menu a.nav-link-mobile, a.guias-float');
 
             allNavLinks.forEach(link => {
@@ -932,18 +926,22 @@
                         if (targetElement) {
                             if (link.classList.contains('nav-link-mobile') && !mobileMenu.classList.contains('hidden')) {
                                 mobileMenu.classList.add('hidden');
-                                if (mobileMenuIcon) { // Ensure icon exists
+                                if (mobileMenuIcon) { 
                                     mobileMenuIcon.classList.remove('fa-times');
                                     mobileMenuIcon.classList.add('fa-bars');
                                 }
                             }
-                            targetElement.scrollIntoView({
-                                behavior: "smooth",
-                                block: "start"
+                            // Smooth scroll to target
+                            const headerOffset = headerHeight; // Height of fixed header
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: "smooth"
                             });
                         }
                     } else if (link.classList.contains('nav-link-mobile') && !mobileMenu.classList.contains('hidden')) {
-                        // If it's an external link in the mobile menu, still close the menu
                         mobileMenu.classList.add('hidden');
                         if (mobileMenuIcon) {
                             mobileMenuIcon.classList.remove('fa-times');
@@ -954,26 +952,23 @@
             });
 
             const sections = document.querySelectorAll('main > section[id]');
-            const desktopNavLinks = document.querySelectorAll('header nav a.nav-link'); // Only desktop for active state
+            const desktopNavLinks = document.querySelectorAll('header nav a.nav-link'); 
             const mobileNavLinksForActiveState = document.querySelectorAll('#mobile-menu a.nav-link-mobile');
 
 
             function setActiveLink() {
-                let currentActiveId = sections.length > 0 ? sections[0].getAttribute('id') : ''; // Default to first section if any
+                let currentActiveId = sections.length > 0 ? sections[0].getAttribute('id') : ''; 
 
                 for (let i = sections.length - 1; i >= 0; i--) {
                     const section = sections[i];
                     const sectionTop = section.offsetTop - headerHeight;
-
-                    // A section is active if its top is at or above the scroll position by a certain threshold
-                    // This threshold helps in activating the link a bit before the section perfectly aligns
-                    // Used a positive offset (e.g., window.innerHeight * 0.3) to make it activate sooner when scrolling down
-                    if (window.scrollY >= sectionTop - (window.innerHeight * 0.3) ) {
+                    
+                    if (window.scrollY >= sectionTop - (window.innerHeight * 0.3) ) { 
                         currentActiveId = section.getAttribute('id');
-                        break;
+                        break; 
                     }
                 }
-
+                
                 desktopNavLinks.forEach(link => {
                     link.classList.remove('active', 'text-askesis-orange');
                     if (link.getAttribute('href') === `#${currentActiveId}`) {
@@ -981,17 +976,17 @@
                     }
                 });
                 mobileNavLinksForActiveState.forEach(link => {
-                    link.classList.remove('text-askesis-orange', 'font-bold');
+                    link.classList.remove('text-askesis-orange', 'font-bold'); 
                      if (link.getAttribute('href') === `#${currentActiveId}`) {
                         link.classList.add('text-askesis-orange', 'font-bold');
                     }
                 });
             }
-
-            if (sections.length > 0) { // Only run if sections exist
+            
+            if (sections.length > 0) { 
                 setActiveLink();
                 window.addEventListener('scroll', setActiveLink);
-                window.addEventListener('resize', setActiveLink); // Also update on resize
+                window.addEventListener('resize', setActiveLink); 
             }
         });
     </script>
