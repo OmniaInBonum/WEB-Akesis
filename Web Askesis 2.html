@@ -111,7 +111,8 @@
         }
 
         #hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center;
+            /* Imagen de fondo actualizada a la nueva imagen de GitHub del usuario */
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/jimeng-2025-05-17-587-Ultra-realistic%20photo%20of%20a%20personal%20trainer%20looking%20a%20women%20doing%20squats%2C%20capt....jpeg') no-repeat center center;
             background-size: cover;
             color: white;
             min-height: 100vh;
@@ -921,7 +922,7 @@
             allNavLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     const targetId = link.getAttribute('href');
-                    if (targetId && targetId.startsWith('#')) {
+                    if (targetId && targetId.startsWith('#')) { // Only for internal page anchors
                         e.preventDefault();
                         const targetElement = document.querySelector(targetId);
 
@@ -944,12 +945,14 @@
                             });
                         }
                     } else if (link.classList.contains('nav-link-mobile') && !mobileMenu.classList.contains('hidden')) {
+                        // If it's an external link in the mobile menu, still close the menu
                         mobileMenu.classList.add('hidden');
                         if (mobileMenuIcon) {
                             mobileMenuIcon.classList.remove('fa-times');
                             mobileMenuIcon.classList.add('fa-bars');
                         }
                     }
+                    // For external links, default browser behavior will take over (no e.preventDefault())
                 });
             });
 
