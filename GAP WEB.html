@@ -100,8 +100,9 @@
 
         .page-section { padding: 4rem 1.5rem; }
         #hero-gap {
-            /* Imagen de Pexels para el hero de GAP - Mujer Yoga/Pilates */
-            background: linear-gradient(rgba(111, 66, 193, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.pexels.com/photos/4056535/pexels-photo-4056535.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center;
+            /* Imagen de fondo actualizada y posición ajustada */
+            background: linear-gradient(rgba(111, 66, 193, 0.7), rgba(44, 62, 80, 0.7)), url('https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/jimeng-2025-05-17-591-Ultra-realistic%20photo%20of%20a%20personal%20trainer%20looking%20a%20women%20doing%20%20bulgarian%20s....jpeg') no-repeat;
+            background-position: center 60%; /* Ajusta el centrado vertical de la imagen */
             background-size: cover;
             color: white;
             min-height: 80vh;
@@ -156,10 +157,10 @@
             text-align: center;
             text-transform: uppercase;
         }
-        .subsection-title { /* Para títulos dentro de secciones, como los de los meses */
+        .subsection-title { 
             font-family: 'Roboto', sans-serif;
             color: var(--askesis-blue); 
-            font-size: 1.6em; /* Ligeramente más pequeño */
+            font-size: 1.6em; 
             font-weight: 700;
             margin-top: 1.5rem;
             margin-bottom: 1rem;
@@ -171,7 +172,7 @@
             padding: 1rem 1.5rem;
             border-radius: 8px;
             font-weight: 700;
-            font-size: 1.2rem; /* Un poco más grande para los títulos de mes */
+            font-size: 1.2rem; 
             cursor: pointer;
             transition: background-color 0.3s;
             display: flex;
@@ -241,15 +242,14 @@
             .section-title { font-size: 1.8em; }
             .subsection-title { font-size: 1.4em; }
             .page-section { padding: 3rem 1rem; }
-            .main-header nav { display: flex; align-items: center;} /* Asegurar que nav sea flex en móvil */
-            .main-header .nav-link, .main-header .nav-cta-button { font-size: 0.75rem; padding: 0.4rem 0.8rem;} /* Ajustar tamaño de enlaces en móvil */
+            .main-header nav { display: flex; align-items: center;} 
+            .main-header .nav-link, .main-header .nav-cta-button { font-size: 0.75rem; padding: 0.4rem 0.8rem;} 
         }
-        @media (max-width: 480px) { /* Ajustes para pantallas muy pequeñas */
+        @media (max-width: 480px) { 
              .main-header .nav-link, .main-header .nav-cta-button { font-size: 0.7rem; padding: 0.3rem 0.6rem;}
              #hero-gap .hero-title { font-size: 1.8rem; }
              #hero-gap .hero-subtitle { font-size: 1rem; }
         }
-
 
     </style>
 </head>
@@ -465,7 +465,6 @@
                             });
                         }
                     }
-                    // Para enlaces externos (como el de "Volver a Planes"), el comportamiento por defecto del navegador se mantendrá.
                 });
             });
         });
