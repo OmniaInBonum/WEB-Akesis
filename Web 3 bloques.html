@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa Transformación Total (3 Bloques) - Askesis</title>
+    <meta name="description" content="Maximiza músculo, fuerza y potencia con el Programa de Transformación Total de Askesis. Plan de 3 bloques (12-16 semanas) basado en ciencia.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C',
+                        'askesis-green': '#008037', // Color principal para este plan
+                        'askesis-orange': '#F58220',
+                        'askesis-purple': '#6f42c1',
+                        'askesis-dark': '#1a202c',
+                        'askesis-gray': '#2d3748',
+                        'askesis-light-gray': '#edf2f7',
+                        'askesis-text-dark': '#343a40',
+                        'askesis-text-body': '#4A5568',
+                        'askesis-bg-light': '#f8f9fa',
+                        'askesis-accent-green-light': '#e8f8f5', // Acento para este plan
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037; /* Color principal para este plan */
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1;
+            --askesis-dark: #1a202c;
+            --askesis-gray: #2d3748;
+            --askesis-light-gray: #edf2f7;
+            --askesis-text-body: #4A5568;
+            --askesis-bg-white: #ffffff;
+            --askesis-accent-green-light: '#e8f8f5';
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-text-body);
+            background-color: var(--askesis-bg-light);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            background-color: var(--askesis-green); /* Color Verde para el header de este plan */
+        }
+        .main-header.scrolled {
+            background-color: var(--askesis-dark); 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+        .nav-link { 
+            color: white;
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            border-radius: 0.25rem;
+            font-weight: 600;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--askesis-orange); 
+        }
+        .nav-cta-button { 
+            background-color: var(--askesis-orange); 
+            color: white !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.375rem;
+            font-weight: 700; 
+            text-transform: uppercase; 
+            font-size: 0.875rem; 
+        }
+        .nav-cta-button:hover{
+            background-color: #d97019; 
+        }
+
+        .page-section { padding: 4rem 1.5rem; }
+        #hero-transformacion {
+            background: linear-gradient(rgba(0, 128, 55, 0.7), rgba(26, 32, 44, 0.8)), url('https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center;
+            background-size: cover;
+            color: white;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        #hero-transformacion .hero-title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+        #hero-transformacion .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--askesis-light-gray);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .transformacion-cta-button {
+            background-color: var(--askesis-orange); 
+            color: white !important;
+            padding: 0.9rem 2.2rem;
+            border-radius: 0.375rem;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .transformacion-cta-button:hover {
+            background-color: #d97019; 
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-green); /* Títulos de sección en verde */
+            font-size: 2.2em;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-orange); /* Borde naranja para contraste */
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .subsection-title { 
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-dark); 
+            font-size: 1.6em; 
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .accordion-item details summary {
+            background-color: var(--askesis-accent-green-light); /* Acento verde claro para acordeones */
+            color: var(--askesis-green);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.2rem; 
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem; 
+        }
+        .accordion-item details summary:hover {
+            background-color: #d4efdf; /* Verde más oscuro al pasar el mouse */
+        }
+        .accordion-item details summary .arrow-icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        .accordion-item details[open] summary {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        .accordion-item details[open] summary .arrow-icon {
+            transform: rotate(180deg);
+        }
+        .accordion-item details .accordion-content {
+            padding: 1.5rem;
+            border: 1px solid #b8e0c8; /* Borde verde más sutil */
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            background-color: var(--askesis-bg-white);
+        }
+        .accordion-content ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .accordion-content ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background-color: var(--askesis-accent-green-light);
+            border-left: 4px solid var(--askesis-green);
+            padding: 1.25rem 1.75rem; 
+            border-radius: 6px; 
+            margin: 2rem 0; 
+        }
+        .highlight-box p { color: var(--askesis-text-dark); font-size: 0.95rem; }
+        .highlight-box strong { color: var(--askesis-green); }
+
+        footer {
+            background-color: var(--askesis-dark);
+            color: #a0aec0;
+            padding: 3rem 1rem 1.5rem;
+            text-align: center;
+        }
+        footer .footer-logo {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+        footer .footer-tagline { font-size: 0.8rem; color: #718096; margin-bottom: 1.5rem;}
+        footer .copyright-footer { font-size: 0.8rem; color: #718096; margin-top: 1.5rem; border-top: 1px solid #4A5568; padding-top: 1rem;}
+
+        @media (max-width: 768px) {
+            #hero-transformacion .hero-title { font-size: 2rem; }
+            #hero-transformacion .hero-subtitle { font-size: 1.1rem; }
+            .section-title { font-size: 1.8em; }
+            .subsection-title { font-size: 1.4em; }
+            .page-section { padding: 3rem 1rem; }
+            .main-header nav { display: flex; align-items: center;} 
+            .main-header .nav-link, .main-header .nav-cta-button { font-size: 0.75rem; padding: 0.4rem 0.8rem;} 
+        }
+        @media (max-width: 480px) { 
+             .main-header .nav-link, .main-header .nav-cta-button { font-size: 0.7rem; padding: 0.3rem 0.6rem;}
+             #hero-transformacion .hero-title { font-size: 1.8rem; }
+             #hero-transformacion .hero-subtitle { font-size: 1rem; }
+        }
+
+    </style>
+</head>
+
+<body class="bg-askesis-bg-light">
+
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-between p-3">
+            <a href="https://omniainbonum.github.io/WEB-Akesis/Web%20Askesis%202.html" class="text-2xl font-black text-white uppercase tracking-wider font-roboto">Askesis</a>
+            <nav>
+                <a href="https://omniainbonum.github.io/WEB-Akesis/Web%20Askesis%202.html" class="nav-link">Volver a Planes</a>
+                <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Programa%20de%20Transformaci%C3%B3n%20Total." target="_blank" class="nav-cta-button ml-2">
+                    <i class="fab fa-whatsapp"></i> Consultar
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero-transformacion" class="scroll-mt-header" style="scroll-margin-top: 60px;">
+            <div class="content-wrapper px-4">
+                <h1 class="hero-title"><span class="text-askesis-orange">Transformación Total:</span><br>Músculo, Fuerza y Potencia en 3 Bloques</h1>
+                <p class="hero-subtitle">
+                    Nuestro programa estrella de 12-16 semanas, diseñado científicamente para hombres que buscan maximizar su desarrollo físico integral.
+                </p>
+                <a href="#contacto-transformacion" class="transformacion-cta-button"><i class="fas fa-fire mr-2"></i>Inicia Tu Transformación</a>
+            </div>
+        </section>
+
+        <section id="intro-transformacion" class="page-section">
+            <div class="content-wrapper max-w-3xl mx-auto text-center">
+                <h2 class="section-title"><i class="fas fa-medal mr-2"></i>¿Qué es el Programa de Transformación Total?</h2>
+                <p class="text-lg mb-4">
+                    Este es nuestro programa más completo y ambicioso, estructurado en <strong>tres bloques progresivos (12-16 semanas en total)</strong>, cada uno con un objetivo específico: Hipertrofia (construcción muscular), Fuerza Máxima y Desarrollo de Potencia.
+                </p>
+                <p class="mb-6">
+                    Si buscas un cambio físico significativo, aumentar tu masa muscular de calidad, levantar más peso que nunca y traducir esa fuerza en explosividad y rendimiento atlético, este plan es para ti. Utilizamos una periodización ondulante y principios científicos probados para llevarte al siguiente nivel.
+                </p>
+            </div>
+        </section>
+
+        <section id="filosofia-transformacion" class="page-section bg-askesis-bg-white">
+            <div class="content-wrapper max-w-4xl mx-auto">
+                <h2 class="section-title"><i class="fas fa-cogs mr-2"></i>La Ciencia Detrás de Tu Progreso</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="mb-4">Este programa no es una rutina genérica. Se fundamenta en:</p>
+                        <ul class="space-y-3 text-askesis-text-body">
+                            <li class="flex items-start"><i class="fas fa-check-circle text-askesis-green mr-3 mt-1 text-xl"></i><div><strong class="font-semibold">Periodización Estratégica:</strong> Cada bloque prepara el camino para el siguiente, optimizando las adaptaciones y minimizando el estancamiento.</div></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-askesis-green mr-3 mt-1 text-xl"></i><div><strong class="font-semibold">Sobrecarga Progresiva:</strong> Aplicamos aumentos sistemáticos en volumen, intensidad y/o complejidad para forzar al cuerpo a adaptarse y mejorar.</div></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-askesis-green mr-3 mt-1 text-xl"></i><div><strong class="font-semibold">Selección Óptima de Ejercicios:</strong> Utilizamos movimientos compuestos y de aislamiento probados para estimular eficazmente cada grupo muscular y cualidad física.</div></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-askesis-green mr-3 mt-1 text-xl"></i><div><strong class="font-semibold">Manejo de la Fatiga:</strong> Incorporamos estrategias de recuperación y descarga para asegurar un progreso sostenible y prevenir el sobreentrenamiento.</div></li>
+                        </ul>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://images.pexels.com/photos/3253501/pexels-photo-3253501.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/350x350/008037/FFFFFF?text=Fuerza+y+Desarrollo+Askesis';"
+                             alt="Hombre levantando pesas con determinación" class="rounded-lg shadow-xl mx-auto">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="estructura-plan-transformacion" class="page-section">
+            <div class="content-wrapper max-w-4xl mx-auto">
+                <h2 class="section-title"><i class="fas fa-project-diagram mr-2"></i>Estructura del Programa: Los 3 Bloques</h2>
+                <p class="text-center text-lg mb-6">
+                    El programa se divide en tres mesociclos (bloques), cada uno con una duración aproximada de 4-6 semanas, dependiendo de la adaptación individual.
+                </p>
+                <p class="text-center mb-8">
+                    <i class="fas fa-info-circle text-askesis-blue mr-1"></i> Tu plan 100% personalizado detallará los ejercicios, series, repeticiones y progresiones exactas para cada bloque.
+                </p>
+
+                <div class="accordion-item mb-6">
+                    <details>
+                        <summary class="text-xl">Bloque 1: Arquitectura Muscular (Hipertrofia) <i class="fas fa-chevron-down arrow-icon ml-auto"></i></summary>
+                        <div class="accordion-content">
+                            <h3 class="subsection-title"><i class="fas fa-layer-group mr-2"></i>Enfoque del Bloque 1:</h3>
+                            <p>El objetivo principal es construir una base sólida de masa muscular.</p>
+                            <ul>
+                                <li><strong>Volumen de Entrenamiento Elevado:</strong> Realizarás un mayor número de series y repeticiones para maximizar el estímulo hipertrófico.</li>
+                                <li><strong>Rango de Repeticiones Moderado:</strong> Típicamente entre 8-15 repeticiones por serie para la mayoría de los ejercicios.</li>
+                                <li><strong>Tiempo Bajo Tensión:</strong> Enfocarse en controlar el peso y sentir la contracción muscular en cada repetición.</li>
+                                <li><strong>Ejercicios Compuestos y de Aislamiento:</strong> Combinación para asegurar un desarrollo muscular completo y equilibrado.</li>
+                            </ul>
+                            <p class="mt-3"><strong>¿Qué esperar?</strong> Un aumento notable en el tamaño muscular, congestión ("pump") durante los entrenamientos y una mejora en la resistencia muscular.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="accordion-item mb-6">
+                    <details>
+                        <summary class="text-xl">Bloque 2: Dominio de Cargas (Fuerza Máxima) <i class="fas fa-chevron-down arrow-icon ml-auto"></i></summary>
+                        <div class="accordion-content">
+                            <h3 class="subsection-title"><i class="fas fa-dumbbell mr-2"></i>Enfoque del Bloque 2:</h3>
+                            <p>Una vez construida la masa muscular, nos enfocamos en hacerla más fuerte.</p>
+                            <ul>
+                                <li><strong>Intensidad Elevada:</strong> Trabajarás con cargas más pesadas, cercanas a tu máximo.</li>
+                                <li><strong>Rango de Repeticiones Bajo:</strong> Generalmente entre 3-6 repeticiones por serie en los ejercicios principales.</li>
+                                <li><strong>Ejercicios Compuestos Clave:</strong> Énfasis en movimientos como sentadillas, peso muerto, press de banca y press militar.</li>
+                                <li><strong>Adaptaciones Neurales:</strong> Mejorar la capacidad de tu sistema nervioso para reclutar más fibras musculares y generar más fuerza.</li>
+                            </ul>
+                            <p class="mt-3"><strong>¿Qué esperar?</strong> Un aumento significativo en tu fuerza máxima. Levantarás pesos que antes no podías y te sentirás considerablemente más fuerte.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="accordion-item mb-6">
+                    <details>
+                        <summary class="text-xl">Bloque 3: Desarrollo de Potencia <i class="fas fa-bolt mr-2"></i></summary>
+                        <div class="accordion-content">
+                            <h3 class="subsection-title"><i class="fas fa-fighter-jet mr-2"></i>Enfoque del Bloque 3:</h3>
+                            <p>El objetivo es traducir la fuerza ganada en velocidad y explosividad.</p>
+                            <ul>
+                                <li><strong>Movimientos Explosivos:</strong> Incorporación de ejercicios como saltos, lanzamientos, levantamientos olímpicos (o sus variantes) y movimientos pliométricos.</li>
+                                <li><strong>Velocidad de Ejecución:</strong> Énfasis en mover la carga (que será moderada o ligera) a la máxima velocidad posible.</li>
+                                <li><strong>Tasa de Desarrollo de Fuerza (RFD):</strong> Mejorar la capacidad de generar fuerza rápidamente.</li>
+                                <li><strong>Transferencia al Rendimiento:</strong> Aplicar la fuerza y potencia a movimientos deportivos o funcionales.</li>
+                            </ul>
+                            <p class="mt-3"><strong>¿Qué esperar?</strong> Serás más rápido, más ágil y más explosivo. Notarás una mejora en tu capacidad de salto, sprint y en cualquier actividad que requiera movimientos potentes.</p>
+                        </div>
+                    </details>
+                </div>
+                 <div class="highlight-box">
+                    <p><strong class="font-semibold">Un Enfoque Holístico:</strong> A lo largo de los tres bloques, se presta atención continua a la técnica, la prevención de lesiones, la movilidad y la recuperación para asegurar un desarrollo óptimo y sostenible.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="que-incluye-transformacion" class="page-section bg-askesis-bg-white">
+            <div class="content-wrapper max-w-3xl mx-auto">
+                <h2 class="section-title"><i class="fas fa-cogs mr-2"></i>¿Qué Incluye el Programa de Transformación Total?</h2>
+                <ul class="space-y-3 text-lg">
+                    <li class="flex items-start p-3 bg-white rounded shadow-sm"><i class="fas fa-user-astronaut text-askesis-green mr-3 mt-1 text-xl"></i><div><strong>Evaluación Inicial Exhaustiva:</strong> Análisis de tu nivel, experiencia, objetivos, disponibilidad y cualquier factor relevante.</div></li>
+                    <li class="flex items-start p-3 bg-white rounded shadow-sm"><i class="fas fa-drafting-compass text-askesis-green mr-3 mt-1 text-xl"></i><div><strong>Planificación Periodizada de 12-16 Semanas:</strong> Los 3 bloques (Hipertrofia, Fuerza, Potencia) completamente personalizados.</li>
+                    <li class="flex items-start p-3 bg-white rounded shadow-sm"><i class="fas fa-dumbbell text-askesis-green mr-3 mt-1 text-xl"></i><div><strong>Selección Detallada de Ejercicios:</strong> Con progresiones y regresiones según tus necesidades.</div></li>
+                    <li class="flex items-start p-3 bg-white rounded shadow-sm"><i class="fas fa-video text-askesis-green mr-3 mt-1 text-xl"></i><div><strong>Soporte Visual (Opcional):</strong> Videos explicativos para la técnica correcta de los ejercicios clave.</div></li>
+                    <li class="flex items-start p-3 bg-white rounded shadow-sm"><i class="fas fa-chart-area text-askesis-green mr-3 mt-1 text-xl"></i><div><strong>Seguimiento Continuo y Ajustes Dinámicos:</strong> Adaptamos el plan en función de tu progreso y feedback semanal.</div></li>
+                    <li class="flex items-start p-3 bg-white rounded shadow-sm"><i class="fab fa-whatsapp text-askesis-green mr-3 mt-1 text-xl"></i><div><strong>Comunicación Directa y Constante:</strong> Soporte vía WhatsApp o email para todas tus dudas.</div></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contacto-transformacion" class="page-section bg-askesis-green text-white">
+            <div class="content-wrapper text-center max-w-2xl mx-auto">
+                <h2 class="font-roboto text-3xl font-bold mb-6"><i class="fas fa-rocket mr-2"></i>¿Listo para la Transformación Definitiva?</h2>
+                <p class="text-xl mb-8">
+                    Si te tomas en serio tus objetivos de desarrollo físico y estás preparado para un programa que te desafiará y te llevará a nuevos límites, este es tu plan.
+                </p>
+                <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado%20en%20el%20Programa%20de%20Transformaci%C3%B3n%20Total%20(3%20Bloques)." target="_blank" class="inline-flex items-center bg-askesis-orange hover:bg-orange-400 text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg transition-transform transform hover:scale-105">
+                    <i class="fab fa-whatsapp mr-3"></i> Solicitar Info del Programa Completo
+                </a>
+                <p class="mt-6 text-sm">O envíame un email a: <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Programa%20Transformaci%C3%B3n%20Total" class="font-semibold hover:underline">luistdu111@gmail.com</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="content-wrapper">
+            <a href="https://omniainbonum.github.io/WEB-Akesis/Web%20Askesis%202.html" class="footer-logo">Askesis</a>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <p class="copyright-footer">© <span id="currentYearFooter"></span> Askesis. Todos los derechos reservados. <br> <a href="https://omniainbonum.github.io/WEB-Akesis/Web%20Askesis%202.html" class="hover:text-askesis-orange">Volver a la página principal</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const yearSpan = document.getElementById('currentYearFooter');
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            const header = document.querySelector('.main-header');
+            const scrollMarginElements = document.querySelectorAll('.scroll-mt-header');
+
+            function updateScrollMargin() {
+                if (header) {
+                    const headerHeight = header.offsetHeight;
+                    scrollMarginElements.forEach(el => {
+                        el.style.scrollMarginTop = `${headerHeight}px`;
+                    });
+                }
+            }
+            
+            if (header) { 
+                 window.addEventListener('scroll', () => {
+                    if (window.scrollY > 30) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            }
+            updateScrollMargin(); 
+            window.addEventListener('resize', updateScrollMargin); 
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#') && href.length > 1 && document.querySelector(href)) { 
+                        const targetElement = document.querySelector(href);
+                        if (targetElement) {
+                            e.preventDefault();
+                            const headerOffset = header ? header.offsetHeight : 0;
+                            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                            const offsetPosition = elementPosition - headerOffset;
+                            
+                            window.scrollTo({
+                                 top: offsetPosition,
+                                 behavior: "smooth"
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

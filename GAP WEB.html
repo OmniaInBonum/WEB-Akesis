@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa GAP Femenino (3 Meses) - Askesis</title>
+    <meta name="description" content="Descubre el Programa GAP Femenino de Askesis: un plan de 3 meses para fortalecer y definir Glúteos, Abdomen y Piernas. Científicamente diseñado y adaptado a ti.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C',
+                        'askesis-green': '#008037',
+                        'askesis-orange': '#F58220',
+                        'askesis-purple': '#6f42c1', // Color principal para GAP
+                        'askesis-dark': '#1a202c',
+                        'askesis-gray': '#2d3748',
+                        'askesis-light-gray': '#edf2f7',
+                        'askesis-text-dark': '#343a40',
+                        'askesis-text-body': '#4A5568',
+                        'askesis-bg-light': '#f8f9fa',
+                        'askesis-accent-purple-light': '#f4ecf7', // Acento para GAP
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1; 
+            --askesis-dark: #1a202c;
+            --askesis-gray: #2d3748;
+            --askesis-light-gray: #edf2f7;
+            --askesis-text-body: #4A5568;
+            --askesis-bg-white: #ffffff;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-text-body);
+            background-color: var(--askesis-bg-light);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            background-color: var(--askesis-purple); 
+        }
+        .main-header.scrolled {
+            background-color: var(--askesis-dark); 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+        .nav-link {
+            color: white;
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            border-radius: 0.25rem;
+            font-weight: 600;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--askesis-orange);
+        }
+        .nav-cta-button {
+            background-color: var(--askesis-orange);
+            color: white !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.375rem;
+            font-weight: 700; 
+            text-transform: uppercase; 
+            font-size: 0.875rem; 
+        }
+        .nav-cta-button:hover{
+            background-color: #d97019;
+        }
+
+        .page-section { padding: 4rem 1.5rem; }
+        #hero-gap {
+            /* Imagen de Pexels para el hero de GAP - Mujer Yoga/Pilates */
+            background: linear-gradient(rgba(111, 66, 193, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.pexels.com/photos/4056535/pexels-photo-4056535.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center;
+            background-size: cover;
+            color: white;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        #hero-gap .hero-title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        #hero-gap .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--askesis-light-gray);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .gap-cta-button {
+            background-color: var(--askesis-orange);
+            color: white !important;
+            padding: 0.9rem 2.2rem;
+            border-radius: 0.375rem;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .gap-cta-button:hover {
+            background-color: #d97019;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-purple);
+            font-size: 2.2em;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-orange);
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .subsection-title { /* Para títulos dentro de secciones, como los de los meses */
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-blue); 
+            font-size: 1.6em; /* Ligeramente más pequeño */
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .accordion-item details summary {
+            background-color: var(--askesis-accent-purple-light);
+            color: var(--askesis-purple);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.2rem; /* Un poco más grande para los títulos de mes */
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem; 
+        }
+        .accordion-item details summary:hover {
+            background-color: #e9d8fd; 
+        }
+        .accordion-item details summary .arrow-icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        .accordion-item details[open] summary {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        .accordion-item details[open] summary .arrow-icon {
+            transform: rotate(180deg);
+        }
+        .accordion-item details .accordion-content {
+            padding: 1.5rem;
+            border: 1px solid #e0cff0; 
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            background-color: var(--askesis-bg-white);
+        }
+        .accordion-content ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .accordion-content ul li {
+            margin-bottom: 0.5rem;
+        }
+
+
+        .highlight-box {
+            background-color: var(--askesis-accent-purple-light);
+            border-left: 4px solid var(--askesis-purple);
+            padding: 1.25rem 1.75rem; 
+            border-radius: 6px; 
+            margin: 2rem 0; 
+        }
+        .highlight-box p { color: var(--askesis-text-dark); font-size: 0.95rem; }
+        .highlight-box strong { color: var(--askesis-purple); }
+
+        footer {
+            background-color: var(--askesis-dark);
+            color: #a0aec0;
+            padding: 3rem 1rem 1.5rem;
+            text-align: center;
+        }
+        footer .footer-logo {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+        footer .footer-tagline { font-size: 0.8rem; color: #718096; margin-bottom: 1.5rem;}
+        footer .copyright-footer { font-size: 0.8rem; color: #718096; margin-top: 1.5rem; border-top: 1px solid #4A5568; padding-top: 1rem;}
+
+        @media (max-width: 768px) {
+            #hero-gap .hero-title { font-size: 2rem; }
+            #hero-gap .hero-subtitle { font-size: 1.1rem; }
+            .section-title { font-size: 1.8em; }
+            .subsection-title { font-size: 1.4em; }
+            .page-section { padding: 3rem 1rem; }
+            .main-header nav { display: flex; align-items: center;} /* Asegurar que nav sea flex en móvil */
+            .main-header .nav-link, .main-header .nav-cta-button { font-size: 0.75rem; padding: 0.4rem 0.8rem;} /* Ajustar tamaño de enlaces en móvil */
+        }
+        @media (max-width: 480px) { /* Ajustes para pantallas muy pequeñas */
+             .main-header .nav-link, .main-header .nav-cta-button { font-size: 0.7rem; padding: 0.3rem 0.6rem;}
+             #hero-gap .hero-title { font-size: 1.8rem; }
+             #hero-gap .hero-subtitle { font-size: 1rem; }
+        }
+
+
+    </style>
+</head>
+
+<body class="bg-askesis-bg-light">
+
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-between p-3">
+            <a href="https://omniainbonum.github.io/WEB-Akesis/Web%20Askesis%202.html" class="text-2xl font-black text-white uppercase tracking-wider font-roboto">Askesis</a>
+            <nav>
+                <a href="https://omniainbonum.github.io/WEB-Akesis/Web%20Askesis%202.html" class="nav-link">Volver a Planes</a>
+                <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Programa%20GAP%20Femenino." target="_blank" class="nav-cta-button ml-2">
+                    <i class="fab fa-whatsapp"></i> Consultar
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero-gap" class="scroll-mt-header" style="scroll-margin-top: 60px;">             <div class="content-wrapper px-4">
+                <h1 class="hero-title"><span class="text-askesis-orange">Programa GAP Femenino:</span><br>Glúteos, Abdomen y Piernas de Acero</h1>
+                <p class="hero-subtitle">
+                    Fortalece, tonifica y define las zonas clave con un plan de entrenamiento científico de 3 meses,
+                    diseñado específicamente para la mujer y adaptado a tus objetivos.
+                </p>
+                <a href="#contacto-gap" class="gap-cta-button"><i class="fas fa-rocket mr-2"></i>Comienza tu Transformación GAP</a>
+            </div>
+        </section>
+
+        <section id="intro-gap" class="page-section">
+            <div class="content-wrapper max-w-3xl mx-auto text-center">
+                <h2 class="section-title"><i class="fas fa-female mr-2"></i>¿Qué es el Programa GAP Femenino?</h2>
+                <p class="text-lg mb-4">
+                    El Programa GAP (Glúteos, Abdomen y Piernas) de Askesis es un plan de entrenamiento especializado y periodizado de <strong>3 meses de duración</strong>,
+                    enfocado en desarrollar la fuerza, mejorar la composición corporal y esculpir estas tres áreas fundamentales
+                    para una figura estética y funcional.
+                </p>
+                <p class="mb-6">
+                    Olvídate de rutinas genéricas. Este programa utiliza principios científicos para asegurar que cada ejercicio
+                    y cada sesión te acerquen a tus metas de forma eficiente y segura, progresando inteligentemente a lo largo de las 12 semanas.
+                </p>
+                </div>
+        </section>
+
+        <section id="filosofia-gap" class="page-section bg-askesis-bg-white">
+            <div class="content-wrapper max-w-4xl mx-auto">
+                <h2 class="section-title"><i class="fas fa-brain mr-2"></i>Nuestra Filosofía para tu Éxito en GAP</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="mb-4">Entendemos que cada mujer es única. Por eso, nuestro enfoque se centra en:</p>
+                        <ul class="space-y-3 text-askesis-text-body">
+                            <li class="flex items-start"><i class="fas fa-check-circle text-askesis-purple mr-3 mt-1 text-xl"></i><div><strong class="font-semibold">Técnica Impecable:</strong> Aprenderás la ejecución correcta de cada ejercicio para maximizar la activación muscular y minimizar el riesgo de lesiones.</div></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-askesis-purple mr-3 mt-1 text-xl"></i><div><strong class="font-semibold">Conexión Mente-Músculo:</strong> Te enseñaremos a sentir y controlar los músculos que trabajas, potenciando los resultados.</div></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-askesis-purple mr-3 mt-1 text-xl"></i><div><strong class="font-semibold">Progresión Adaptada:</strong> El plan evoluciona contigo. Ajustamos la carga, el volumen y la intensidad para que sigas progresando sin estancarte.</div></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-askesis-purple mr-3 mt-1 text-xl"></i><div><strong class="font-semibold">Enfoque Integral:</strong> Aunque nos centramos en GAP, entendemos la importancia de un cuerpo equilibrado y funcional.</div></li>
+                        </ul>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://images.pexels.com/photos/416809/pexels-photo-416809.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/350x350/6f42c1/FFFFFF?text=Técnica+y+Progreso+GAP';"
+                             alt="Mujer realizando ejercicio con buena técnica" class="rounded-full shadow-xl mx-auto w-64 h-64 object-cover md:w-80 md:h-80">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="estructura-plan-gap" class="page-section">
+            <div class="content-wrapper max-w-4xl mx-auto">
+                <h2 class="section-title"><i class="fas fa-cogs mr-2"></i>Estructura General del Programa GAP (3 Meses)</h2>
+                <p class="text-center text-lg mb-6">
+                    Este programa de 12 semanas está diseñado para llevarte progresivamente hacia tus objetivos. Se divide en tres fases principales (mesociclos), cada una con un enfoque particular para maximizar tus resultados de forma segura y efectiva.
+                </p>
+                <p class="text-center mb-8">
+                    <i class="fas fa-info-circle text-askesis-blue mr-1"></i> El plan 100% personalizado que recibirás se ajustará a tu nivel inicial, equipamiento disponible y feedback constante. Esta es una visión general de nuestra metodología.
+                </p>
+
+                <div class="accordion-item mb-6">
+                    <details>
+                        <summary class="text-xl">Mes 1: Adaptación Anatómica y Acumulación de Volumen <i class="fas fa-chevron-down arrow-icon ml-auto"></i></summary>
+                        <div class="accordion-content">
+                            <h3 class="subsection-title"><i class="fas fa-shoe-prints mr-2"></i>Enfoque del Mes 1:</h3>
+                            <p>El primer mes se centra en construir una base sólida. Nos enfocaremos en:</p>
+                            <ul>
+                                <li><strong>Acondicionamiento General:</strong> Preparar tus músculos, tendones y ligamentos para el trabajo más intenso que vendrá.</li>
+                                <li><strong>Técnica de Ejercicios Clave:</strong> Aprender y perfeccionar la forma correcta de los movimientos fundamentales para GAP.</li>
+                                <li><strong>Conexión Mente-Músculo:</strong> Desarrollar la capacidad de sentir y activar conscientemente los glúteos, abdomen y piernas.</li>
+                                <li><strong>Aumento Gradual del Volumen:</strong> Incrementar poco a poco la cantidad total de trabajo para estimular la adaptación sin sobrecargar.</li>
+                            </ul>
+                            <p class="mt-3"><strong>¿Qué esperar?</strong> Sesiones diseñadas para mejorar tu resistencia muscular y aprender los patrones de movimiento. Sentirás cómo tus músculos empiezan a activarse de nuevas maneras.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="accordion-item mb-6">
+                    <details>
+                        <summary class="text-xl">Mes 2: Intensificación y Desarrollo de Fuerza <i class="fas fa-chevron-down arrow-icon ml-auto"></i></summary>
+                        <div class="accordion-content">
+                            <h3 class="subsection-title"><i class="fas fa-dumbbell mr-2"></i>Enfoque del Mes 2:</h3>
+                            <p>Con una base establecida, el segundo mes busca aumentar la intensidad y la fuerza:</p>
+                            <ul>
+                                <li><strong>Incremento de Cargas:</strong> Empezarás a mover pesos más desafiantes en los ejercicios principales.</li>
+                                <li><strong>Rangos de Repeticiones para Fuerza:</strong> Se ajustarán las repeticiones para optimizar las ganancias de fuerza muscular.</li>
+                                <li><strong>Introducción de Variantes:</strong> Podríamos introducir variaciones de ejercicios para seguir estimulando los músculos desde diferentes ángulos.</li>
+                                <li><strong>Mantenimiento de la Técnica:</strong> Es crucial seguir ejecutando los ejercicios con la forma correcta a medida que aumentan las cargas.</li>
+                            </ul>
+                            <p class="mt-3"><strong>¿Qué esperar?</strong> Te sentirás más fuerte y capaz. Los ejercicios se volverán más demandantes, pero verás progresos notables en tus levantamientos y en la tonificación.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="accordion-item mb-6">
+                    <details>
+                        <summary class="text-xl">Mes 3: Realización y Estrés Metabólico <i class="fas fa-fire mr-2"></i></summary>
+                        <div class="accordion-content">
+                            <h3 class="subsection-title"><i class="fas fa-gem mr-2"></i>Enfoque del Mes 3:</h3>
+                            <p>El último mes está diseñado para maximizar la hipertrofia (crecimiento muscular) y la definición, utilizando un mayor estrés metabólico:</p>
+                            <ul>
+                                <li><strong>Técnicas de Intensidad:</strong> Podríamos incorporar (según tu nivel y recuperación) métodos como superseries, drop sets o descansos más cortos para llevar tus músculos al límite.</li>
+                                <li><strong>Volumen y Densidad:</strong> Se buscará aumentar la cantidad de trabajo realizado en un tiempo determinado, promoviendo la congestión muscular ("pump").</li>
+                                <li><strong>Enfoque en la "Apariencia":</strong> Los ejercicios y métodos seleccionados buscarán refinar la forma y el tono muscular.</li>
+                                <li><strong>Mantenimiento de la Fuerza:</strong> Aunque el foco cambia, buscaremos mantener la fuerza ganada en el mes anterior.</li>
+                            </ul>
+                            <p class="mt-3"><strong>¿Qué esperar?</strong> Este mes es para "pulir" los resultados. Espera entrenamientos intensos que te dejarán con una gran sensación de trabajo muscular y te ayudarán a alcanzar ese aspecto tonificado y definido que buscas.</p>
+                        </div>
+                    </details>
+                </div>
+                 <div class="highlight-box">
+                    <p><strong class="font-semibold">Importante:</strong> Cada mes se estructura con microciclos (semanas) que incluyen <strong>3 días de entrenamiento especializado en GAP</strong>, con progresiones claras y un enfoque en la recuperación para asegurar resultados óptimos y sostenibles.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="que-incluye-gap" class="page-section bg-askesis-bg-white">
+            <div class="content-wrapper max-w-3xl mx-auto">
+                <h2 class="section-title"><i class="fas fa-gift mr-2"></i>¿Qué Obtienes con el Plan GAP Personalizado?</h2>
+                <ul class="space-y-3 text-lg">
+                    <li class="flex items-start p-3 bg-white rounded shadow-sm"><i class="fas fa-clipboard-list text-askesis-purple mr-3 mt-1 text-xl"></i><div><strong>Evaluación Inicial Detallada:</strong> Para conocer tu punto de partida, historial, objetivos y cualquier limitación.</div></li>
+                    <li class="flex items-start p-3 bg-white rounded shadow-sm"><i class="fas fa-ruler-combined text-askesis-purple mr-3 mt-1 text-xl"></i><div><strong>Plan de Entrenamiento de 3 Meses 100% Personalizado:</strong> Diseñado específicamente para ti, enfocado en GAP, pero considerando tu cuerpo de forma integral. La estructura general presentada aquí se adapta a tus necesidades.</div></li>
+                    <li class="flex items-start p-3 bg-white rounded shadow-sm"><i class="fas fa-video text-askesis-purple mr-3 mt-1 text-xl"></i><div><strong>Demostraciones en Video (Opcional):</strong> Acceso a videos privados explicando la técnica correcta de los ejercicios.</div></li>
+                    <li class="flex items-start p-3 bg-white rounded shadow-sm"><i class="fas fa-comments text-askesis-purple mr-3 mt-1 text-xl"></i><div><strong>Seguimiento Semanal y Ajustes:</strong> Revisamos tu progreso y realizamos los cambios necesarios para que sigas avanzando.</div></li>
+                    <li class="flex items-start p-3 bg-white rounded shadow-sm"><i class="fab fa-whatsapp text-askesis-purple mr-3 mt-1 text-xl"></i><div><strong>Soporte Directo por WhatsApp/Email:</strong> Para resolver todas tus dudas rápidamente.</div></li>
+                    <li class="flex items-start p-3 bg-white rounded shadow-sm"><i class="fas fa-lightbulb text-askesis-purple mr-3 mt-1 text-xl"></i><div><strong>Educación Continua:</strong> Aprenderás el porqué de tu entrenamiento, ganando autonomía.</div></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contacto-gap" class="page-section bg-askesis-purple text-white">
+            <div class="content-wrapper text-center max-w-2xl mx-auto">
+                <h2 class="font-roboto text-3xl font-bold mb-6"><i class="fas fa-paper-plane mr-2"></i>¡Da el Paso Hacia tus Objetivos GAP!</h2>
+                <p class="text-xl mb-8">
+                    Si estás lista para transformar tus glúteos, abdomen y piernas con un enfoque científico y personalizado,
+                    ¡contáctame hoy mismo!
+                </p>
+                <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesada%20en%20el%20Programa%20GAP%20Femenino%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n." target="_blank" class="inline-flex items-center bg-askesis-orange hover:bg-orange-400 text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg transition-transform transform hover:scale-105">
+                    <i class="fab fa-whatsapp mr-3"></i> Solicitar Información del Plan GAP
+                </a>
+                <p class="mt-6 text-sm">O envíame un email a: <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Programa%20GAP%20Femenino" class="font-semibold hover:underline">luistdu111@gmail.com</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="content-wrapper">
+            <a href="https://omniainbonum.github.io/WEB-Akesis/Web%20Askesis%202.html" class="footer-logo">Askesis</a> <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <p class="copyright-footer">© <span id="currentYearFooter"></span> Askesis. Todos los derechos reservados. <br> <a href="https://omniainbonum.github.io/WEB-Akesis/Web%20Askesis%202.html" class="hover:text-askesis-orange">Volver a la página principal</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const yearSpan = document.getElementById('currentYearFooter');
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            const header = document.querySelector('.main-header');
+            const scrollMarginElements = document.querySelectorAll('.scroll-mt-header');
+
+            function updateScrollMargin() {
+                if (header) {
+                    const headerHeight = header.offsetHeight;
+                    scrollMarginElements.forEach(el => {
+                        el.style.scrollMarginTop = `${headerHeight}px`;
+                    });
+                }
+            }
+            
+            if (header) { 
+                 window.addEventListener('scroll', () => {
+                    if (window.scrollY > 30) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            }
+            updateScrollMargin(); 
+            window.addEventListener('resize', updateScrollMargin); 
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    // Solo prevenir default y hacer scroll suave para anclas internas de esta página
+                    if (href.startsWith('#') && href.length > 1 && document.querySelector(href)) { 
+                        const targetElement = document.querySelector(href);
+                        if (targetElement) {
+                            e.preventDefault();
+                            const headerOffset = header ? header.offsetHeight : 0;
+                            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                            const offsetPosition = elementPosition - headerOffset;
+                            
+                            window.scrollTo({
+                                 top: offsetPosition,
+                                 behavior: "smooth"
+                            });
+                        }
+                    }
+                    // Para enlaces externos (como el de "Volver a Planes"), el comportamiento por defecto del navegador se mantendrá.
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
