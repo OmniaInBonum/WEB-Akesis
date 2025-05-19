@@ -132,7 +132,7 @@
             margin-left: auto;
             margin-right: auto;
         }
-        .gap-cta-button {
+        .gap-cta-button { /* Estilo base del botón del hero */
             background-color: var(--askesis-orange);
             color: white !important;
             padding: 0.9rem 2.2rem;
@@ -142,6 +142,8 @@
             text-transform: uppercase;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: inline-block; /* Asegurar comportamiento predecible */
+            text-decoration: none; /* Quitar subrayado de enlace */
         }
         .gap-cta-button:hover {
             background-color: #d97019;
@@ -255,12 +257,27 @@
             .main-header .nav-link, .main-header .nav-cta-button { font-size: 0.75rem; padding: 0.4rem 0.6rem;} 
             .img-responsive-container { max-width: 280px; }
         }
+
         @media (max-width: 480px) { 
              .main-header .nav-link, .main-header .nav-cta-button { font-size: 0.65rem; padding: 0.3rem 0.5rem; margin: 0 0.1rem;}
              .header-logo a { font-size: 1.5rem;}
              #hero-gap .hero-title { font-size: 1.8rem; }
              #hero-gap .hero-subtitle { font-size: 1rem; }
-             .gap-cta-button { font-size: 0.9rem; padding: 0.8rem 1.8rem;}
+             
+             /* --- INICIO DE LA CORRECCIÓN DEL BOTÓN DEL HERO --- */
+             #hero-gap .gap-cta-button { /* Selector más específico para el botón del hero */
+                display: block;          /* Hace que el botón ocupe su propia línea y permite centrado con márgenes */
+                width: auto;             /* Ancho se ajusta al contenido, hasta el max-width */
+                max-width: 95%;          /* Ancho máximo del 95% del contenedor padre para evitar que toque los bordes */
+                margin-left: auto;       /* Centra el botón horizontalmente */
+                margin-right: auto;      /* Centra el botón horizontalmente */
+                padding: 0.8rem 1.2rem;  /* Relleno vertical y horizontal ajustado */
+                font-size: 0.875rem;     /* Tamaño de fuente ligeramente reducido para mejor ajuste */
+                text-align: center;      /* Centra el texto y el icono dentro del botón */
+                line-height: 1.4;        /* Altura de línea mejorada por si el texto se envuelve */
+            }
+            /* --- FIN DE LA CORRECCIÓN DEL BOTÓN DEL HERO --- */
+
              .accordion-item details summary { font-size: 1.1rem; padding: 0.8rem 1rem;}
              .img-responsive-container { max-width: 240px; }
         }
@@ -284,8 +301,7 @@
 
     <main>
         <section id="hero-gap" class="scroll-mt-header">
-            <div class="content-wrapper px-4">
-                <h1 class="hero-title"><span class="text-askesis-orange">Programa GAP Femenino:</span><br>Glúteos, Abdomen y Piernas de Acero</h1>
+            <div class="content-wrapper px-4"> <h1 class="hero-title"><span class="text-askesis-orange">Programa GAP Femenino:</span><br>Glúteos, Abdomen y Piernas de Acero</h1>
                 <p class="hero-subtitle">
                     Fortalece, tonifica y define las zonas clave con un plan de entrenamiento científico de 3 meses,
                     diseñado específicamente para la mujer y adaptado a tus objetivos.
@@ -440,15 +456,15 @@
             if(yearSpan) yearSpan.textContent = new Date().getFullYear();
 
             const header = document.querySelector('.main-header');
-            const scrollMarginElements = document.querySelectorAll('.scroll-mt-header'); // Selecciona todos los elementos que necesitan el margen
+            const scrollMarginElements = document.querySelectorAll('.scroll-mt-header'); 
             let headerHeight = 0;
 
 
             function updateScrollMargin() {
                 if (header) {
                     headerHeight = header.offsetHeight;
-                     document.body.style.paddingTop = `${headerHeight}px`; // Aplica padding al body
-                    scrollMarginElements.forEach(el => { // Aplica scroll-margin a las secciones
+                     document.body.style.paddingTop = `${headerHeight}px`; 
+                    scrollMarginElements.forEach(el => { 
                         el.style.scrollMarginTop = `${headerHeight}px`;
                     });
                 }
@@ -456,8 +472,8 @@
             
             if (header) { 
                  window.addEventListener('scroll', () => {
-                    if (window.scrollY > 30) { // Puedes ajustar este valor
-                        // header.classList.add('scrolled'); // Descomentar si quieres que el header cambie con scroll
+                    if (window.scrollY > 30) { 
+                        // header.classList.add('scrolled'); 
                     } else {
                         // header.classList.remove('scrolled');
                     }
@@ -473,7 +489,7 @@
                         const targetElement = document.querySelector(href);
                         if (targetElement) {
                             e.preventDefault();
-                            const headerOffset = headerHeight; // Usa la altura calculada
+                            const headerOffset = headerHeight; 
                             const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                             const offsetPosition = elementPosition - headerOffset;
                             
