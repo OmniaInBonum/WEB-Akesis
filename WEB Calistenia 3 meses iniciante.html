@@ -16,8 +16,8 @@
                     colors: {
                         'askesis-blue': '#005A9C',
                         'askesis-green': '#008037',
-                        'askesis-orange': '#F58220', // Naranja principal de Askesis
-                        'askesis-calisthenics-orange': '#f39c12', // Naranja específico para Calistenia
+                        'askesis-orange': '#F58220', 
+                        'askesis-calisthenics-orange': '#f39c12', 
                         'askesis-purple': '#6f42c1', 
                         'askesis-dark': '#1a202c',
                         'askesis-gray': '#2d3748',
@@ -25,7 +25,7 @@
                         'askesis-text-dark': '#343a40',
                         'askesis-text-body': '#4A5568',
                         'askesis-bg-light': '#f8f9fa',
-                        'askesis-accent-orange-light': '#fef5e7', // Acento para Calistenia
+                        'askesis-accent-orange-light': '#fef5e7', 
                     },
                     fontFamily: {
                         'lato': ['Lato', 'sans-serif'],
@@ -41,14 +41,14 @@
             --askesis-blue: #005A9C;
             --askesis-green: #008037;
             --askesis-orange: #F58220;
-            --askesis-calisthenics-orange: '#f39c12'; /* Color principal para Calistenia */
+            --askesis-calisthenics-orange: #f39c12; /* Color principal para Calistenia */
             --askesis-purple: #6f42c1; 
             --askesis-dark: #1a202c;
             --askesis-gray: #2d3748;
             --askesis-light-gray: #edf2f7;
             --askesis-text-body: #4A5568;
             --askesis-bg-white: #ffffff;
-            --askesis-accent-orange-light: '#fef5e7';
+            --askesis-accent-orange-light: #fef5e7;
         }
 
         html { scroll-behavior: smooth; }
@@ -60,6 +60,7 @@
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            padding-top: 60px; /* Espacio para el header fijo */
         }
 
         .main-header {
@@ -69,13 +70,17 @@
             width: 100%;
             z-index: 1000;
             transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            background-color: var(--askesis-calisthenics-orange); /* Color Calistenia para el header */
+            background-color: var(--askesis-calisthenics-orange); 
         }
-        .main-header.scrolled {
-            background-color: var(--askesis-dark); 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1.5rem;
         }
-        .nav-link { /* Estilo general para enlaces de navegación del header */
+        .nav-link {
             color: white;
             padding: 0.5rem 1rem;
             margin: 0 0.25rem;
@@ -86,10 +91,10 @@
             font-size: 0.875rem;
         }
         .nav-link:hover, .nav-link.active {
-            color: var(--askesis-dark); /* Un color oscuro para contraste con naranja */
+            color: var(--askesis-dark); 
         }
-        .nav-cta-button { /* Botón de consulta en el header */
-            background-color: var(--askesis-blue); /* Azul para el botón de consulta */
+        .nav-cta-button {
+            background-color: var(--askesis-blue); 
             color: white !important;
             padding: 0.6rem 1.2rem;
             border-radius: 0.375rem;
@@ -98,12 +103,11 @@
             font-size: 0.875rem; 
         }
         .nav-cta-button:hover{
-            background-color: #004170; /* Azul más oscuro */
+            background-color: #004170; 
         }
 
         .page-section { padding: 4rem 1.5rem; }
         #hero-calisthenics {
-            /* Imagen de fondo actualizada a la imagen de GitHub del usuario */
             background: linear-gradient(rgba(243, 156, 18, 0.7), rgba(44, 62, 80, 0.7)), url('https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/dominadas.jpeg') no-repeat center center;
             background-size: cover;
             color: white;
@@ -132,7 +136,7 @@
             margin-right: auto;
         }
         .calisthenics-cta-button {
-            background-color: var(--askesis-blue); /* Botón principal del hero en azul */
+            background-color: var(--askesis-blue); 
             color: white !important;
             padding: 0.9rem 2.2rem;
             border-radius: 0.375rem;
@@ -143,19 +147,19 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         .calisthenics-cta-button:hover {
-            background-color: #004170; /* Azul más oscuro */
+            background-color: #004170; 
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
 
         .section-title {
             font-family: 'Roboto', sans-serif;
-            color: var(--askesis-calisthenics-orange); /* Títulos de sección en naranja calistenia */
+            color: var(--askesis-calisthenics-orange); 
             font-size: 2.2em;
             font-weight: 900;
             margin-bottom: 2rem;
             padding-bottom: 0.8rem;
-            border-bottom: 3px solid var(--askesis-blue); /* Borde azul para contraste */
+            border-bottom: 3px solid var(--askesis-blue); 
             text-align: center;
             text-transform: uppercase;
         }
@@ -169,7 +173,7 @@
         }
 
         .accordion-item details summary {
-            background-color: var(--askesis-accent-orange-light); /* Acento naranja claro para acordeones */
+            background-color: var(--askesis-accent-orange-light); 
             color: var(--askesis-calisthenics-orange);
             padding: 1rem 1.5rem;
             border-radius: 8px;
@@ -183,7 +187,7 @@
             margin-bottom: 0.5rem; 
         }
         .accordion-item details summary:hover {
-            background-color: #fdebd0; /* Naranja más oscuro al pasar el mouse */
+            background-color: #fdebd0; 
         }
         .accordion-item details summary .arrow-icon {
             transition: transform 0.3s ease-in-out;
@@ -197,7 +201,7 @@
         }
         .accordion-item details .accordion-content {
             padding: 1.5rem;
-            border: 1px solid #fadbb9; /* Borde naranja más sutil */
+            border: 1px solid #fadbb9; 
             border-top: none;
             border-radius: 0 0 8px 8px;
             background-color: var(--askesis-bg-white);
@@ -210,6 +214,12 @@
         .accordion-content ul li {
             margin-bottom: 0.5rem;
         }
+
+        .img-responsive-container { 
+            max-width: 320px; 
+            margin: 1rem auto; 
+        }
+
 
         .highlight-box {
             background-color: var(--askesis-accent-orange-light);
@@ -238,18 +248,24 @@
         footer .copyright-footer { font-size: 0.8rem; color: #718096; margin-top: 1.5rem; border-top: 1px solid #4A5568; padding-top: 1rem;}
 
         @media (max-width: 768px) {
+            body { padding-top: 56px; } 
             #hero-calisthenics .hero-title { font-size: 2rem; }
             #hero-calisthenics .hero-subtitle { font-size: 1.1rem; }
             .section-title { font-size: 1.8em; }
             .subsection-title { font-size: 1.4em; }
             .page-section { padding: 3rem 1rem; }
-            .main-header nav { display: flex; align-items: center;} 
-            .main-header .nav-link, .main-header .nav-cta-button { font-size: 0.75rem; padding: 0.4rem 0.8rem;} 
+            .main-header .header-content { padding: 0.5rem 1rem; } 
+            .main-header .nav-link, .main-header .nav-cta-button { font-size: 0.75rem; padding: 0.4rem 0.6rem;} 
+            .img-responsive-container { max-width: 280px; }
         }
         @media (max-width: 480px) { 
-             .main-header .nav-link, .main-header .nav-cta-button { font-size: 0.7rem; padding: 0.3rem 0.6rem;}
+             .main-header .nav-link, .main-header .nav-cta-button { font-size: 0.65rem; padding: 0.3rem 0.5rem; margin: 0 0.1rem;}
+             .header-logo a { font-size: 1.5rem;}
              #hero-calisthenics .hero-title { font-size: 1.8rem; }
              #hero-calisthenics .hero-subtitle { font-size: 1rem; }
+             .gap-cta-button { font-size: 0.9rem; padding: 0.8rem 1.8rem;} /* Reutilizado de GAP, ajustar si es necesario */
+             .accordion-item details summary { font-size: 1.1rem; padding: 0.8rem 1rem;}
+             .img-responsive-container { max-width: 240px; }
         }
 
     </style>
@@ -258,10 +274,10 @@
 <body class="bg-askesis-bg-light">
 
     <header class="main-header">
-        <div class="container mx-auto flex items-center justify-between p-3">
-            <a href="https://omniainbonum.github.io/WEB-Akesis/Web%20Askesis%202.html" class="text-2xl font-black text-white uppercase tracking-wider font-roboto">Askesis</a>
+        <div class="header-content">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" class="text-2xl font-black text-white uppercase tracking-wider font-roboto">Askesis</a>
             <nav>
-                <a href="https://omniainbonum.github.io/WEB-Akesis/Web%20Askesis%202.html" class="nav-link">Volver a Planes</a>
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html#hero" class="nav-link">Volver a Planes</a>
                 <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Programa%20de%20Iniciaci%C3%B3n%20a%20la%20Calistenia." target="_blank" class="nav-cta-button ml-2">
                     <i class="fab fa-whatsapp"></i> Consultar
                 </a>
@@ -270,7 +286,7 @@
     </header>
 
     <main>
-        <section id="hero-calisthenics" class="scroll-mt-header" style="scroll-margin-top: 60px;">
+        <section id="hero-calisthenics" class="scroll-mt-header">
             <div class="content-wrapper px-4">
                 <h1 class="hero-title"><span class="text-askesis-blue">Iniciación a la Calistenia:</span><br>Domina Tu Cuerpo en 3 Meses</h1>
                 <p class="hero-subtitle">
@@ -306,10 +322,10 @@
                             <li class="flex items-start"><i class="fas fa-check-circle text-askesis-calisthenics-orange mr-3 mt-1 text-xl"></i><div><strong class="font-semibold">Fuerza Funcional:</strong> Desarrollarás fuerza que se traduce en un mejor rendimiento en la vida diaria y en otras actividades físicas.</div></li>
                         </ul>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center img-responsive-container">
                         <img src="https://images.pexels.com/photos/2294361/pexels-photo-2294361.jpeg?auto=compress&cs=tinysrgb&w=600" 
                              onerror="this.onerror=null;this.src='https://placehold.co/350x350/f39c12/FFFFFF?text=Fuerza+y+Control+Calistenia';"
-                             alt="Persona demostrando control corporal en calistenia" class="rounded-lg shadow-xl mx-auto">
+                             alt="Persona demostrando control corporal en calistenia" class="rounded-lg shadow-xl mx-auto w-full h-auto object-cover">
                     </div>
                 </div>
             </div>
@@ -398,23 +414,23 @@
 
         <section id="contacto-calisthenics" class="page-section bg-askesis-calisthenics-orange text-white">
             <div class="content-wrapper text-center max-w-2xl mx-auto">
-                <h2 class="font-roboto text-3xl font-bold mb-6"><i class="fas fa-paper-plane mr-2"></i>¡Desafía la Gravedad y Comienza Hoy!</h2>
-                <p class="text-xl mb-8">
+                <h2 class="font-roboto text-3xl font-bold mb-6 text-askesis-dark"><i class="fas fa-paper-plane mr-2"></i>¡Desafía la Gravedad y Comienza Hoy!</h2>
+                <p class="text-xl mb-8 text-askesis-dark">
                     Si estás listo/a para desbloquear tu potencial con el entrenamiento de peso corporal y lograr hazañas de fuerza que no creías posibles, ¡este es tu momento!
                 </p>
                 <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20el%20Programa%20de%20Iniciaci%C3%B3n%20a%20la%20Calistenia." target="_blank" class="inline-flex items-center bg-askesis-blue hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg transition-transform transform hover:scale-105">
                     <i class="fab fa-whatsapp mr-3"></i> Solicitar Info del Plan Calistenia
                 </a>
-                <p class="mt-6 text-sm">O envíame un email a: <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Programa%20Iniciaci%C3%B3n%20Calistenia" class="font-semibold hover:underline">luistdu111@gmail.com</a></p>
+                <p class="mt-6 text-sm text-askesis-dark">O envíame un email a: <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Programa%20Iniciaci%C3%B3n%20Calistenia" class="font-semibold hover:underline">luistdu111@gmail.com</a></p>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="content-wrapper">
-            <a href="https://omniainbonum.github.io/WEB-Akesis/Web%20Askesis%202.html" class="footer-logo">Askesis</a>
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" class="footer-logo">Askesis</a>
             <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
-            <p class="copyright-footer">© <span id="currentYearFooter"></span> Askesis. Todos los derechos reservados. <br> <a href="https://omniainbonum.github.io/WEB-Akesis/Web%20Askesis%202.html" class="hover:text-askesis-orange">Volver a la página principal</a></p>
+            <p class="copyright-footer">© <span id="currentYearFooter"></span> Askesis. Todos los derechos reservados. <br> <a href="https://omniainbonum.github.io/web-test/test%20web.html" class="hover:text-askesis-orange">Volver a la página principal</a></p>
         </div>
     </footer>
 
@@ -424,12 +440,15 @@
             if(yearSpan) yearSpan.textContent = new Date().getFullYear();
 
             const header = document.querySelector('.main-header');
-            const scrollMarginElements = document.querySelectorAll('.scroll-mt-header');
+            const scrollMarginElements = document.querySelectorAll('.scroll-mt-header'); 
+            let headerHeight = 0;
+
 
             function updateScrollMargin() {
                 if (header) {
-                    const headerHeight = header.offsetHeight;
-                    scrollMarginElements.forEach(el => {
+                    headerHeight = header.offsetHeight;
+                     document.body.style.paddingTop = `${headerHeight}px`; 
+                    scrollMarginElements.forEach(el => { 
                         el.style.scrollMarginTop = `${headerHeight}px`;
                     });
                 }
@@ -437,10 +456,10 @@
             
             if (header) { 
                  window.addEventListener('scroll', () => {
-                    if (window.scrollY > 30) {
-                        header.classList.add('scrolled');
+                    if (window.scrollY > 30) { 
+                        // header.classList.add('scrolled'); // Descomentar si quieres que el header cambie con scroll
                     } else {
-                        header.classList.remove('scrolled');
+                        // header.classList.remove('scrolled');
                     }
                 });
             }
@@ -450,11 +469,11 @@
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     const href = this.getAttribute('href');
-                    if (href.startsWith('#') && href.length > 1 && document.querySelector(href)) { 
+                    if (href.startsWith('#') && href.length > 1) { 
                         const targetElement = document.querySelector(href);
                         if (targetElement) {
                             e.preventDefault();
-                            const headerOffset = header ? header.offsetHeight : 0;
+                            const headerOffset = headerHeight; 
                             const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                             const offsetPosition = elementPosition - headerOffset;
                             
