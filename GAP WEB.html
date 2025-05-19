@@ -57,6 +57,7 @@
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            padding-top: 60px; /* Ajustado para la altura del header fijo */
         }
 
         .main-header {
@@ -68,9 +69,13 @@
             transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             background-color: var(--askesis-purple); 
         }
-        .main-header.scrolled {
-            background-color: var(--askesis-dark); 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        .header-content { 
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1.5rem; 
         }
         .nav-link {
             color: white;
@@ -100,9 +105,7 @@
 
         .page-section { padding: 4rem 1.5rem; }
         #hero-gap {
-            /* Imagen de fondo actualizada y posición ajustada */
-            background: linear-gradient(rgba(111, 66, 193, 0.7), rgba(44, 62, 80, 0.7)), url('https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/portada%20askesis.jpeg') no-repeat;
-            background-position: center 60%; /* Ajusta el centrado vertical de la imagen */
+            background: linear-gradient(rgba(111, 66, 193, 0.7), rgba(44, 62, 80, 0.7)), url('https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/portada%20askesis.jpeg') no-repeat center center;
             background-size: cover;
             color: white;
             min-height: 80vh;
@@ -209,6 +212,11 @@
             margin-bottom: 0.5rem;
         }
 
+        .img-responsive-container { 
+            max-width: 320px; 
+            margin: 1rem auto; 
+        }
+
 
         .highlight-box {
             background-color: var(--askesis-accent-purple-light);
@@ -237,18 +245,24 @@
         footer .copyright-footer { font-size: 0.8rem; color: #718096; margin-top: 1.5rem; border-top: 1px solid #4A5568; padding-top: 1rem;}
 
         @media (max-width: 768px) {
+            body { padding-top: 56px; } 
             #hero-gap .hero-title { font-size: 2rem; }
             #hero-gap .hero-subtitle { font-size: 1.1rem; }
             .section-title { font-size: 1.8em; }
             .subsection-title { font-size: 1.4em; }
             .page-section { padding: 3rem 1rem; }
-            .main-header nav { display: flex; align-items: center;} 
-            .main-header .nav-link, .main-header .nav-cta-button { font-size: 0.75rem; padding: 0.4rem 0.8rem;} 
+            .main-header .header-content { padding: 0.5rem 1rem; } 
+            .main-header .nav-link, .main-header .nav-cta-button { font-size: 0.75rem; padding: 0.4rem 0.6rem;} 
+            .img-responsive-container { max-width: 280px; }
         }
         @media (max-width: 480px) { 
-             .main-header .nav-link, .main-header .nav-cta-button { font-size: 0.7rem; padding: 0.3rem 0.6rem;}
+             .main-header .nav-link, .main-header .nav-cta-button { font-size: 0.65rem; padding: 0.3rem 0.5rem; margin: 0 0.1rem;}
+             .header-logo a { font-size: 1.5rem;}
              #hero-gap .hero-title { font-size: 1.8rem; }
              #hero-gap .hero-subtitle { font-size: 1rem; }
+             .gap-cta-button { font-size: 0.9rem; padding: 0.8rem 1.8rem;}
+             .accordion-item details summary { font-size: 1.1rem; padding: 0.8rem 1rem;}
+             .img-responsive-container { max-width: 240px; }
         }
 
     </style>
@@ -257,10 +271,10 @@
 <body class="bg-askesis-bg-light">
 
     <header class="main-header">
-        <div class="container mx-auto flex items-center justify-between p-3">
-            <a href="https://omniainbonum.github.io/WEB-Akesis/Web%20Askesis%202.html" class="text-2xl font-black text-white uppercase tracking-wider font-roboto">Askesis</a>
+        <div class="header-content">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" class="text-2xl font-black text-white uppercase tracking-wider font-roboto">Askesis</a>
             <nav>
-                <a href="https://omniainbonum.github.io/WEB-Akesis/Web%20Askesis%202.html" class="nav-link">Volver a Planes</a>
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html#hero" class="nav-link">Volver a Planes</a>
                 <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Programa%20GAP%20Femenino." target="_blank" class="nav-cta-button ml-2">
                     <i class="fab fa-whatsapp"></i> Consultar
                 </a>
@@ -269,7 +283,8 @@
     </header>
 
     <main>
-        <section id="hero-gap" class="scroll-mt-header" style="scroll-margin-top: 60px;">             <div class="content-wrapper px-4">
+        <section id="hero-gap" class="scroll-mt-header">
+            <div class="content-wrapper px-4">
                 <h1 class="hero-title"><span class="text-askesis-orange">Programa GAP Femenino:</span><br>Glúteos, Abdomen y Piernas de Acero</h1>
                 <p class="hero-subtitle">
                     Fortalece, tonifica y define las zonas clave con un plan de entrenamiento científico de 3 meses,
@@ -307,10 +322,10 @@
                             <li class="flex items-start"><i class="fas fa-check-circle text-askesis-purple mr-3 mt-1 text-xl"></i><div><strong class="font-semibold">Enfoque Integral:</strong> Aunque nos centramos en GAP, entendemos la importancia de un cuerpo equilibrado y funcional.</div></li>
                         </ul>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center img-responsive-container"> 
                         <img src="https://images.pexels.com/photos/416809/pexels-photo-416809.jpeg?auto=compress&cs=tinysrgb&w=600" 
                              onerror="this.onerror=null;this.src='https://placehold.co/350x350/6f42c1/FFFFFF?text=Técnica+y+Progreso+GAP';"
-                             alt="Mujer realizando ejercicio con buena técnica" class="rounded-full shadow-xl mx-auto w-64 h-64 object-cover md:w-80 md:h-80">
+                             alt="Mujer realizando ejercicio con buena técnica" class="rounded-full shadow-xl mx-auto w-full h-auto object-cover">
                     </div>
                 </div>
             </div>
@@ -413,8 +428,9 @@
 
     <footer>
         <div class="content-wrapper">
-            <a href="https://omniainbonum.github.io/WEB-Akesis/Web%20Askesis%202.html" class="footer-logo">Askesis</a> <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
-            <p class="copyright-footer">© <span id="currentYearFooter"></span> Askesis. Todos los derechos reservados. <br> <a href="https://omniainbonum.github.io/WEB-Akesis/Web%20Askesis%202.html" class="hover:text-askesis-orange">Volver a la página principal</a></p>
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" class="footer-logo">Askesis</a>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <p class="copyright-footer">© <span id="currentYearFooter"></span> Askesis. Todos los derechos reservados. <br> <a href="https://omniainbonum.github.io/web-test/test%20web.html" class="hover:text-askesis-orange">Volver a la página principal</a></p>
         </div>
     </footer>
 
@@ -424,12 +440,15 @@
             if(yearSpan) yearSpan.textContent = new Date().getFullYear();
 
             const header = document.querySelector('.main-header');
-            const scrollMarginElements = document.querySelectorAll('.scroll-mt-header');
+            const scrollMarginElements = document.querySelectorAll('.scroll-mt-header'); // Selecciona todos los elementos que necesitan el margen
+            let headerHeight = 0;
+
 
             function updateScrollMargin() {
                 if (header) {
-                    const headerHeight = header.offsetHeight;
-                    scrollMarginElements.forEach(el => {
+                    headerHeight = header.offsetHeight;
+                     document.body.style.paddingTop = `${headerHeight}px`; // Aplica padding al body
+                    scrollMarginElements.forEach(el => { // Aplica scroll-margin a las secciones
                         el.style.scrollMarginTop = `${headerHeight}px`;
                     });
                 }
@@ -437,10 +456,10 @@
             
             if (header) { 
                  window.addEventListener('scroll', () => {
-                    if (window.scrollY > 30) {
-                        header.classList.add('scrolled');
+                    if (window.scrollY > 30) { // Puedes ajustar este valor
+                        // header.classList.add('scrolled'); // Descomentar si quieres que el header cambie con scroll
                     } else {
-                        header.classList.remove('scrolled');
+                        // header.classList.remove('scrolled');
                     }
                 });
             }
@@ -450,12 +469,11 @@
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     const href = this.getAttribute('href');
-                    // Solo prevenir default y hacer scroll suave para anclas internas de esta página
-                    if (href.startsWith('#') && href.length > 1 && document.querySelector(href)) { 
+                    if (href.startsWith('#') && href.length > 1) { 
                         const targetElement = document.querySelector(href);
                         if (targetElement) {
                             e.preventDefault();
-                            const headerOffset = header ? header.offsetHeight : 0;
+                            const headerOffset = headerHeight; // Usa la altura calculada
                             const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                             const offsetPosition = elementPosition - headerOffset;
                             
