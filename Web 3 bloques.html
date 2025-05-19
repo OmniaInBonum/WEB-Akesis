@@ -46,7 +46,7 @@
             --askesis-light-gray: #edf2f7;
             --askesis-text-body: #4A5568;
             --askesis-bg-white: #ffffff;
-            --askesis-accent-green-light: '#e8f8f5';
+            --askesis-accent-green-light: #e8f8f5; /* Corregido el # */
         }
 
         html { scroll-behavior: smooth; }
@@ -58,6 +58,7 @@
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            padding-top: 60px; /* Espacio para el header fijo, ajustado */
         }
 
         .main-header {
@@ -67,11 +68,23 @@
             width: 100%;
             z-index: 1000;
             transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            background-color: var(--askesis-green); /* Color Verde para el header de este plan */
+            background-color: var(--askesis-green); 
         }
-        .main-header.scrolled {
-            background-color: var(--askesis-dark); 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        .header-content { /* Contenedor para el contenido del header */
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1.5rem; /* Ajuste de padding para el header */
+        }
+        .header-logo a { /* Logo en el header */
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem; /* Ligeramente más pequeño para móviles */
+            font-weight: 900;
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
         }
         .nav-link { 
             color: white;
@@ -147,12 +160,12 @@
 
         .section-title {
             font-family: 'Roboto', sans-serif;
-            color: var(--askesis-green); /* Títulos de sección en verde */
+            color: var(--askesis-green); 
             font-size: 2.2em;
             font-weight: 900;
             margin-bottom: 2rem;
             padding-bottom: 0.8rem;
-            border-bottom: 3px solid var(--askesis-orange); /* Borde naranja para contraste */
+            border-bottom: 3px solid var(--askesis-orange); 
             text-align: center;
             text-transform: uppercase;
         }
@@ -166,7 +179,7 @@
         }
 
         .accordion-item details summary {
-            background-color: var(--askesis-accent-green-light); /* Acento verde claro para acordeones */
+            background-color: var(--askesis-accent-green-light); 
             color: var(--askesis-green);
             padding: 1rem 1.5rem;
             border-radius: 8px;
@@ -180,7 +193,7 @@
             margin-bottom: 0.5rem; 
         }
         .accordion-item details summary:hover {
-            background-color: #d4efdf; /* Verde más oscuro al pasar el mouse */
+            background-color: #d4efdf; 
         }
         .accordion-item details summary .arrow-icon {
             transition: transform 0.3s ease-in-out;
@@ -194,7 +207,7 @@
         }
         .accordion-item details .accordion-content {
             padding: 1.5rem;
-            border: 1px solid #b8e0c8; /* Borde verde más sutil */
+            border: 1px solid #b8e0c8; 
             border-top: none;
             border-radius: 0 0 8px 8px;
             background-color: var(--askesis-bg-white);
@@ -207,6 +220,12 @@
         .accordion-content ul li {
             margin-bottom: 0.5rem;
         }
+
+        .img-responsive-container { 
+            max-width: 320px; 
+            margin: 1rem auto; 
+        }
+
 
         .highlight-box {
             background-color: var(--askesis-accent-green-light);
@@ -235,18 +254,25 @@
         footer .copyright-footer { font-size: 0.8rem; color: #718096; margin-top: 1.5rem; border-top: 1px solid #4A5568; padding-top: 1rem;}
 
         @media (max-width: 768px) {
+            body { padding-top: 56px; } 
             #hero-transformacion .hero-title { font-size: 2rem; }
             #hero-transformacion .hero-subtitle { font-size: 1.1rem; }
             .section-title { font-size: 1.8em; }
             .subsection-title { font-size: 1.4em; }
             .page-section { padding: 3rem 1rem; }
-            .main-header nav { display: flex; align-items: center;} 
-            .main-header .nav-link, .main-header .nav-cta-button { font-size: 0.75rem; padding: 0.4rem 0.8rem;} 
+            .main-header .header-content { padding: 0.5rem 1rem; } 
+            .main-header .nav-link, .main-header .nav-cta-button { font-size: 0.75rem; padding: 0.4rem 0.6rem;} 
+            .header-logo a { font-size: 1.6rem;} /* Ajuste para el logo en móvil */
+            .img-responsive-container { max-width: 280px; }
         }
         @media (max-width: 480px) { 
-             .main-header .nav-link, .main-header .nav-cta-button { font-size: 0.7rem; padding: 0.3rem 0.6rem;}
+             .main-header .nav-link, .main-header .nav-cta-button { font-size: 0.65rem; padding: 0.3rem 0.4rem; margin: 0 0.1rem;}
+             .header-logo a { font-size: 1.4rem;}
              #hero-transformacion .hero-title { font-size: 1.8rem; }
              #hero-transformacion .hero-subtitle { font-size: 1rem; }
+             .transformacion-cta-button { font-size: 0.9rem; padding: 0.8rem 1.8rem;}
+             .accordion-item details summary { font-size: 1.1rem; padding: 0.8rem 1rem;}
+             .img-responsive-container { max-width: 220px; }
         }
 
     </style>
@@ -255,10 +281,10 @@
 <body class="bg-askesis-bg-light">
 
     <header class="main-header">
-        <div class="container mx-auto flex items-center justify-between p-3">
-            <a href="https://omniainbonum.github.io/WEB-Akesis/Web%20Askesis%202.html" class="text-2xl font-black text-white uppercase tracking-wider font-roboto">Askesis</a>
+        <div class="header-content">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" class="text-2xl font-black text-white uppercase tracking-wider font-roboto">Askesis</a>
             <nav>
-                <a href="https://omniainbonum.github.io/WEB-Akesis/Web%20Askesis%202.html" class="nav-link">Volver a Planes</a>
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html#hero" class="nav-link">Volver a Planes</a>
                 <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Programa%20de%20Transformaci%C3%B3n%20Total." target="_blank" class="nav-cta-button ml-2">
                     <i class="fab fa-whatsapp"></i> Consultar
                 </a>
@@ -267,7 +293,7 @@
     </header>
 
     <main>
-        <section id="hero-transformacion" class="scroll-mt-header" style="scroll-margin-top: 60px;">
+        <section id="hero-transformacion" class="scroll-mt-header">
             <div class="content-wrapper px-4">
                 <h1 class="hero-title"><span class="text-askesis-orange">Transformación Total:</span><br>Músculo, Fuerza y Potencia en 3 Bloques</h1>
                 <p class="hero-subtitle">
@@ -302,10 +328,10 @@
                             <li class="flex items-start"><i class="fas fa-check-circle text-askesis-green mr-3 mt-1 text-xl"></i><div><strong class="font-semibold">Manejo de la Fatiga:</strong> Incorporamos estrategias de recuperación y descarga para asegurar un progreso sostenible y prevenir el sobreentrenamiento.</div></li>
                         </ul>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center img-responsive-container">
                         <img src="https://images.pexels.com/photos/3253501/pexels-photo-3253501.jpeg?auto=compress&cs=tinysrgb&w=600" 
                              onerror="this.onerror=null;this.src='https://placehold.co/350x350/008037/FFFFFF?text=Fuerza+y+Desarrollo+Askesis';"
-                             alt="Hombre levantando pesas con determinación" class="rounded-lg shadow-xl mx-auto">
+                             alt="Hombre levantando pesas con determinación" class="rounded-lg shadow-xl mx-auto w-full h-auto object-cover">
                     </div>
                 </div>
             </div>
@@ -407,9 +433,9 @@
 
     <footer>
         <div class="content-wrapper">
-            <a href="https://omniainbonum.github.io/WEB-Akesis/Web%20Askesis%202.html" class="footer-logo">Askesis</a>
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" class="footer-logo">Askesis</a>
             <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
-            <p class="copyright-footer">© <span id="currentYearFooter"></span> Askesis. Todos los derechos reservados. <br> <a href="https://omniainbonum.github.io/WEB-Akesis/Web%20Askesis%202.html" class="hover:text-askesis-orange">Volver a la página principal</a></p>
+            <p class="copyright-footer">© <span id="currentYearFooter"></span> Askesis. Todos los derechos reservados. <br> <a href="https://omniainbonum.github.io/web-test/test%20web.html" class="hover:text-askesis-orange">Volver a la página principal</a></p>
         </div>
     </footer>
 
@@ -419,12 +445,15 @@
             if(yearSpan) yearSpan.textContent = new Date().getFullYear();
 
             const header = document.querySelector('.main-header');
-            const scrollMarginElements = document.querySelectorAll('.scroll-mt-header');
+            const scrollMarginElements = document.querySelectorAll('.scroll-mt-header'); 
+            let headerHeight = 0;
+
 
             function updateScrollMargin() {
                 if (header) {
-                    const headerHeight = header.offsetHeight;
-                    scrollMarginElements.forEach(el => {
+                    headerHeight = header.offsetHeight;
+                     document.body.style.paddingTop = `${headerHeight}px`; 
+                    scrollMarginElements.forEach(el => { 
                         el.style.scrollMarginTop = `${headerHeight}px`;
                     });
                 }
@@ -432,10 +461,10 @@
             
             if (header) { 
                  window.addEventListener('scroll', () => {
-                    if (window.scrollY > 30) {
-                        header.classList.add('scrolled');
+                    if (window.scrollY > 30) { 
+                        // header.classList.add('scrolled'); // Descomentar si quieres que el header cambie con scroll
                     } else {
-                        header.classList.remove('scrolled');
+                        // header.classList.remove('scrolled');
                     }
                 });
             }
@@ -445,11 +474,11 @@
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     const href = this.getAttribute('href');
-                    if (href.startsWith('#') && href.length > 1 && document.querySelector(href)) { 
+                    if (href.startsWith('#') && href.length > 1) { 
                         const targetElement = document.querySelector(href);
                         if (targetElement) {
                             e.preventDefault();
-                            const headerOffset = header ? header.offsetHeight : 0;
+                            const headerOffset = headerHeight; 
                             const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                             const offsetPosition = elementPosition - headerOffset;
                             
