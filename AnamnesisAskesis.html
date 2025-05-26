@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación Inicial Askesis (Tema Oscuro con Fondo Sentadilla)</title>
+    <meta name="description" content="Formulario de evaluación inicial de Askesis, con un tema oscuro y una imagen de fondo de sentadilla fija con efecto de paralaje.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://raw.githubusercontent.com/OmniaInBonum/web-test/main/Logo%20Askesis.jpg" type="image/jpeg">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'theme-primary': '#5D9CEC',        
+                        'theme-primary-darker': '#4A89CC', 
+                        'theme-primary-rgb': '93, 156, 236', 
+
+                        'theme-secondary': '#4B5563',      
+                        'theme-secondary-darker': '#374151',
+                        'theme-secondary-rgb': '75, 85, 99',
+
+                        'theme-accent': '#FADB5F',         
+                        'theme-accent-rgb': '250, 219, 95',
+
+                        'theme-bg-body': '#121212',        
+                        'theme-bg-card': '#1E1E1E',        
+                        
+                        'theme-text-heading': '#F9FAFB',   
+                        'theme-text-body': '#E5E7EB',      
+                        'theme-text-muted': '#9CA3AF',     
+                        'theme-text-on-primary': '#FFFFFF',
+                        'theme-text-on-secondary': '#F9FAFB',
+                        
+                        'theme-border': '#374151',         
+                        'theme-border-light': '#2d3748',   
+                        'theme-input-bg': '#2C2C2C',       
+                        'theme-input-focus-border': '#A3C9F3', 
+
+                        'status-success': '#28A745',      
+                        'status-success-darker': '#1E7E34', 
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --theme-primary: #5D9CEC;
+            --theme-primary-darker: #4A89CC;
+            --rgb-theme-primary: 93, 156, 236;
+            --theme-secondary: #4B5563;
+            --theme-secondary-darker: #374151;
+            --rgb-theme-secondary: 75, 85, 99;
+            --theme-accent: #FADB5F;
+            --rgb-theme-accent: 250, 219, 95;
+            --theme-bg-body: #121212; 
+            --theme-bg-card: #1E1E1E; 
+            --theme-text-heading: #F9FAFB;
+            --theme-text-body: #E5E7EB;
+            --theme-text-muted: #9CA3AF;
+            --theme-text-on-primary: #FFFFFF;
+            --theme-text-on-secondary: #F9FAFB;
+            --theme-border: #374151;
+            --theme-border-light: #2d3748;
+            --theme-input-bg: #2C2C2C;
+            --theme-input-focus-border: #A3C9F3;
+            --status-success: #28A745;
+            --status-success-darker: #1E7E34;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--theme-text-body);
+            background-color: var(--theme-bg-body);
+            line-height: 1.65; 
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Pseudo-elemento para la imagen de fondo fija */
+        body::before {
+            content: '';
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: -1; /* Asegura que esté detrás de todo el contenido */
+            width: 100vw;
+            height: 100vh;
+            /* URL de la imagen actualizada */
+            background-image: url('https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/Sentadilla%20Casa.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed; /* Efecto de paralaje */
+            opacity: 0.1; /* Opacidad para que no sea muy distractora */
+        }
+
+        .page-section {
+            padding: 3.5rem 1.5rem; 
+        }
+        
+        .content-wrapper {
+            max-width: 880px; 
+            margin-left: auto;
+            margin-right: auto;
+            position: relative; /* Necesario para que el contenido esté sobre el pseudo-elemento body::before */
+            z-index: 1; /* Asegura que el contenido esté sobre la imagen de fondo */
+        }
+
+        .section-title { 
+            font-family: 'Roboto', sans-serif;
+            color: var(--theme-text-heading);
+            font-size: 2.2em; 
+            font-weight: 800; 
+            margin-bottom: 2.25rem; 
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--theme-primary);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+        }
+
+        .form-group {
+            margin-bottom: 1.4rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.45rem;
+            font-weight: 600; 
+            color: var(--theme-text-body);
+            font-size: 0.875rem; 
+        }
+
+        .form-input, .form-textarea, .form-select {
+            width: 100%;
+            padding: 0.75rem 0.9rem; 
+            background-color: var(--theme-input-bg);
+            border: 1px solid var(--theme-border);
+            border-radius: 0.3rem; 
+            color: var(--theme-text-body);
+            font-size: 0.9rem; 
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--theme-primary);
+            box-shadow: 0 0 0 2.5px rgba(var(--rgb-theme-primary), 0.25);
+        }
+        .form-textarea {
+            min-height: 100px; 
+            resize: vertical;
+        }
+
+        .radio-group label, .checkbox-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.4rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+            color: var(--theme-text-body);
+        }
+        .radio-group input[type="radio"], .checkbox-group input[type="checkbox"] {
+            margin-right: 0.65rem;
+            width: 1rem; 
+            height: 1rem;
+            accent-color: var(--theme-primary);
+            cursor: pointer;
+        }
+        
+        fieldset {
+            border: 1px solid var(--theme-border); 
+            border-radius: 0.6rem; 
+            padding: 1.5rem; 
+            margin-bottom: 2.75rem; 
+            background-color: var(--theme-bg-card);
+            transition: border-color 0.2s ease-in-out;
+        }
+        fieldset:hover {
+            border-color: var(--theme-primary);
+        }
+        legend {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.3em; 
+            font-weight: 700;
+            color: var(--theme-primary);
+            padding: 0.15rem 1rem; 
+            background-color: var(--theme-bg-card); 
+            margin-bottom: 1.2rem;
+            text-align: center;
+            display: table; 
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 0.3rem; 
+        }
+
+        .btn { 
+            padding: 0.75rem 1.7rem;
+            border-radius: 0.3rem;
+            font-weight: 600; 
+            text-transform: uppercase;
+            transition: background-color 0.15s ease, transform 0.1s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.3px;
+        }
+        .btn:hover {
+            transform: translateY(-1.5px); 
+        }
+        .btn:active {
+            transform: translateY(-0.5px);
+        }
+
+        .btn-primary {
+            background-color: var(--theme-primary);
+            color: var(--theme-text-on-primary);
+        }
+        .btn-primary:hover {
+            background-color: var(--theme-primary-darker);
+        }
+        
+        .btn-secondary {
+            background-color: var(--theme-secondary);
+            color: var(--theme-text-on-secondary);
+        }
+        .btn-secondary:hover {
+            background-color: var(--theme-secondary-darker);
+        }
+        
+        .btn-success { 
+            background-color: var(--status-success);
+            color: var(--theme-text-on-primary);
+        }
+        .btn-success:hover {
+            background-color: var(--status-success-darker);
+        }
+
+        .save-status, .copy-status {
+            font-size: 0.825rem; 
+            margin-top: 0.8rem;
+            text-align: center;
+            font-weight: 500;
+            min-height: 1.2em; 
+        }
+        .save-status { color: var(--status-success); }
+        .copy-status { color: var(--theme-primary); }
+
+
+        @media (max-width: 768px) {
+            .section-title { font-size: 1.7em; }
+            legend { font-size: 1.15em; }
+            .page-section { padding: 2rem 1rem; }
+            fieldset { padding: 1.2rem; border-radius: 0.5rem;}
+            fieldset:hover { transform: none; }
+            .btn { padding: 0.7rem 1.3rem; font-size: 0.8rem;}
+            body::before { 
+                background-attachment: scroll; /* En móviles, el efecto fixed puede ser problemático. Lo cambiamos a scroll normal. */
+                opacity: 0.07; /* Reducir un poco más la opacidad en móviles si es necesario */
+            } 
+        }
+    </style>
+</head>
+
+<body class="bg-theme-bg-body">
+
+    <header class="main-header bg-theme-bg-card text-theme-text-heading p-3.5 text-center border-b border-theme-border sticky top-0 z-50"> 
+        <a href="#" class="flex items-center justify-center gap-2.5 group">
+            <div class="rounded-full overflow-hidden h-11 w-11 bg-theme-bg-body flex items-center justify-center border-2 border-theme-primary group-hover:border-theme-accent transition-all duration-200 ease-in-out">
+                <img src="https://raw.githubusercontent.com/OmniaInBonum/web-test/main/Logo%20Askesis.jpg" alt="Logo Askesis" class="w-full h-full object-cover">
+            </div>
+            <h1 class="text-2xl font-bold text-theme-text-heading uppercase tracking-tight font-roboto group-hover:text-theme-primary transition-colors duration-200">Askesis</h1>
+        </a>
+    </header>
+
+    <main class="page-section">
+        <div class="content-wrapper"> <h2 class="section-title"><i class="fas fa-file-alt mr-2 text-theme-primary"></i>Evaluación Inicial Askesis</h2>
+            <p class="text-center text-sm mb-7 max-w-2xl mx-auto text-theme-text-body font-medium"> 
+                Este formulario nos ayudará a entender sus necesidades, estado de salud y objetivos.
+                Por favor, complete esta información con la mayor precisión posible.
+                <span class="block mt-1 text-theme-primary font-semibold">Toda la información se guarda automáticamente en su dispositivo.</span>
+            </p>
+
+            <form id="anamnesisForm">
+                <fieldset>
+                    <legend><i class="fas fa-user mr-2"></i>Datos del Participante</legend>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-3.5">
+                        <div class="form-group">
+                            <label for="participantName" class="form-label">Nombre Completo del Participante <span class="text-theme-primary">*</span></label>
+                            <input type="text" id="participantName" name="participantName" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="participantDOB" class="form-label">Fecha de Nacimiento <span class="text-theme-primary">*</span></label>
+                            <input type="date" id="participantDOB" name="participantDOB" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="participantAge" class="form-label">Edad <span class="text-theme-primary">*</span></label>
+                            <input type="number" id="participantAge" name="participantAge" class="form-input" min="5" max="120" required> 
+                        </div>
+                        <div class="form-group">
+                            <label for="participantGender" class="form-label">Género</label>
+                            <select id="participantGender" name="participantGender" class="form-select">
+                                <option value="">Seleccionar</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="No Binario">No Binario</option>
+                                <option value="Prefiero no decir">Prefiero no decir</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend><i class="fas fa-user-shield mr-2"></i>Datos del Padre/Madre/Tutor (Si aplica)</legend> 
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-3.5">
+                        <div class="form-group">
+                            <label for="guardianName" class="form-label">Nombre Completo</label>
+                            <input type="text" id="guardianName" name="guardianName" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="guardianRelationship" class="form-label">Parentesco con el/la Participante</label>
+                            <input type="text" id="guardianRelationship" name="guardianRelationship" class="form-input" placeholder="Ej: Madre, Padre, Tutor Legal">
+                        </div>
+                        <div class="form-group">
+                            <label for="guardianPhone" class="form-label">Teléfono de Contacto</label>
+                            <input type="tel" id="guardianPhone" name="guardianPhone" class="form-input" placeholder="Ej: +56912345678">
+                        </div>
+                        <div class="form-group">
+                            <label for="guardianEmail" class="form-label">Correo Electrónico</label>
+                            <input type="email" id="guardianEmail" name="guardianEmail" class="form-input">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend><i class="fas fa-notes-medical mr-2"></i>Historial Médico del Participante</legend>
+                    <div class="form-group">
+                        <label class="form-label">¿Ha sido diagnosticado/a el/la participante con alguna de las siguientes condiciones? (Seleccionar todas las que apliquen)</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-0.5 checkbox-group">
+                            <label><input type="checkbox" name="medicalConditions" value="Asma"> Asma</label>
+                            <label><input type="checkbox" name="medicalConditions" value="Diabetes"> Diabetes</label>
+                            <label><input type="checkbox" name="medicalConditions" value="Epilepsia"> Epilepsia</label>
+                            <label><input type="checkbox" name="medicalConditions" value="Alergias Conocidas"> Alergias Conocidas (Especificar)</label>
+                            <label><input type="checkbox" name="medicalConditions" value="Condicion Cardiaca"> Condición Cardíaca</label>
+                            <label><input type="checkbox" name="medicalConditions" value="Problemas Articulares"> Problemas Articulares/Musculares Crónicos</label>
+                            <label><input type="checkbox" name="medicalConditions" value="Hipertension"> Hipertensión</label>
+                            <label><input type="checkbox" name="medicalConditions" value="Trastornos Alimenticios"> Trastornos Alimenticios</label>
+                            <label><input type="checkbox" name="medicalConditions" value="Otros"> Otros (Especificar)</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="allergiesSpecify" class="form-label">En caso de alergias u otras condiciones, especifique:</label>
+                        <textarea id="allergiesSpecify" name="allergiesSpecify" class="form-textarea"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="currentMedications" class="form-label">¿Toma el/la participante alguna medicación actualmente?</label>
+                        <textarea id="currentMedications" name="currentMedications" class="form-textarea" placeholder="Listar medicamentos, dosis y frecuencia"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pastInjuries" class="form-label">¿Ha tenido el/la participante lesiones significativas (fracturas, esguinces graves, cirugías) en el pasado? ¿Hay alguna lesión actual?</label>
+                        <textarea id="pastInjuries" name="pastInjuries" class="form-textarea" placeholder="Describir lesión, fecha y recuperación"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="medicalObservations" class="form-label">¿Hay alguna otra observación médica importante que debamos saber?</label>
+                        <textarea id="medicalObservations" name="medicalObservations" class="form-textarea"></textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend><i class="fas fa-dumbbell mr-2"></i>Actividad Física y Estilo de Vida</legend> 
+                    <div class="form-group">
+                        <label for="currentActivityLevel" class="form-label">Nivel de Actividad Física Actual de la Persona:</label>
+                        <select id="currentActivityLevel" name="currentActivityLevel" class="form-select">
+                            <option value="">Seleccionar</option>
+                            <option value="Sedentario">Sedentario (Poca o ninguna actividad)</option>
+                            <option value="Moderado">Moderado (Actividad ligera 1-2 veces/semana)</option>
+                            <option value="Activo">Activo (Actividad 3-4 veces/semana)</option>
+                            <option value="Muy Activo">Muy Activo (Actividad 5+ veces/semana)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="currentSports" class="form-label">¿Practica la persona algún deporte o actividad física organizada actualmente?</label>
+                        <textarea id="currentSports" name="currentSports" class="form-textarea" placeholder="Ej: Fútbol, natación, artes marciales, danza, yoga, etc."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="previousExperience" class="form-label">¿Tiene la persona experiencia previa en calistenia, gimnasio o entrenamiento de fuerza?</label>
+                        <textarea id="previousExperience" name="previousExperience" class="form-textarea" placeholder="Describir tipo de entrenamiento, duración, etc."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sleepHours" class="form-label">¿Cuántas horas duerme la persona en promedio por noche?</label>
+                        <input type="number" id="sleepHours" name="sleepHours" class="form-input" min="1" max="16">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nutritionHabits" class="form-label">Describa brevemente los hábitos alimenticios generales de la persona:</label>
+                        <textarea id="nutritionHabits" name="nutritionHabits" class="form-textarea" placeholder="Ej: Dieta equilibrada, muchas frutas/verduras, consumo frecuente de comida rápida, etc."></textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend><i class="fas fa-bullseye mr-2"></i>Objetivos y Expectativas</legend>
+                    <div class="form-group">
+                        <label for="mainGoal" class="form-label">¿Cuál es el objetivo principal de la persona (y/o del tutor, si aplica) con este programa?</label>
+                        <textarea id="mainGoal" name="mainGoal" class="form-textarea" placeholder="Ej: Mejorar la condición física general, iniciarme en calistenia, prepararse para una prueba física, aumentar fuerza, aprender movimientos específicos, mejorar en un deporte, bienestar general, etc."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Si el interés es la Calistenia, ¿hay algún movimiento o habilidad específica que le interese lograr?</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-0.5 checkbox-group">
+                            <label><input type="checkbox" name="calisthenicsGoals" value="Dominadas"> Primeras Dominadas</label>
+                            <label><input type="checkbox" name="calisthenicsGoals" value="Flexiones"> Aumentar Flexiones</label>
+                            <label><input type="checkbox" name="calisthenicsGoals" value="Fondos"> Primeros Fondos en Paralelas</label>
+                            <label><input type="checkbox" name="calisthenicsGoals" value="L-Sit"> Lograr L-Sit</label>
+                            <label><input type="checkbox" name="calisthenicsGoals" value="Handstand"> Handstand (Parada de Manos)</label>
+                            <label><input type="checkbox" name="calisthenicsGoals" value="Muscle-Up"> Muscle-Up</label>
+                            <label><input type="checkbox" name="calisthenicsGoals" value="Control Corporal"> Mejorar Control Corporal</label>
+                            <label><input type="checkbox" name="calisthenicsGoals" value="Otros Calistenia"> Otros (Especificar)</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="calisthenicsGoalsSpecify" class="form-label">Especifique otros objetivos de calistenia o habilidades:</label>
+                        <textarea id="calisthenicsGoalsSpecify" name="calisthenicsGoalsSpecify" class="form-textarea"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="trainingTypePreference" class="form-label">¿Qué tipo de programa o asesoría le interesaría más?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="trainingTypePreference" value="Gimnasio"> Entrenamiento en Gimnasio</label>
+                            <label><input type="radio" name="trainingTypePreference" value="Calistenia"> Calistenia (en casa/parque/gym)</label>
+                            <label><input type="radio" name="trainingTypePreference" value="Online Personalizado"> Programa Online Personalizado</label>
+                            <label><input type="radio" name="trainingTypePreference" value="Asesoria Deportiva Específica"> Asesoría Deportiva Específica</label>
+                            <label><input type="radio" name="trainingTypePreference" value="Mixto"> Mixto / Combinado</label>
+                            <label><input type="radio" name="trainingTypePreference" value="No Estoy Seguro"> No estoy seguro/a, busco orientación</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="specificSportAdvice" class="form-label">Si busca asesoría deportiva específica, ¿para qué deporte o propósito?</label>
+                        <textarea id="specificSportAdvice" name="specificSportAdvice" class="form-textarea" placeholder="Ej: Mejorar rendimiento en fútbol, resistencia para running, etc."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="trainingFrequency" class="form-label">¿Cuántas veces a la semana le gustaría entrenar o recibir asesoría?</label>
+                        <input type="number" id="trainingFrequency" name="trainingFrequency" class="form-input" min="1" max="7">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="availableEquipment" class="form-label">¿Qué equipamiento o espacio tiene disponible (si aplica para online/casa)?</label>
+                        <textarea id="availableEquipment" name="availableEquipment" class="form-textarea" placeholder="Ej: Barras, mancuernas, bandas elásticas, espacio al aire libre, acceso a gimnasio completo, etc."></textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend><i class="fas fa-check-circle mr-2"></i>Consentimiento y Declaración</legend>
+                    <p class="text-xs mb-2.5 text-theme-text-body font-medium"> 
+                        Yo, <span id="consentGuardianNameDisplay" class="font-semibold text-theme-primary">[Nombre del Padre/Madre/Tutor o Participante si es mayor de edad]</span>,
+                        declaro que la información proporcionada en este formulario es verídica y completa.
+                        Entiendo que la actividad física y los programas de bienestar pueden implicar ciertos riesgos y libero a Askesis y a Luis Patricio Ruiz Ruiz de toda responsabilidad por lesiones o incidentes que puedan ocurrir
+                        como resultado de la participación en los programas, siempre y cuando se sigan las instrucciones y la técnica adecuada.
+                    </p>
+                    <p class="text-xs mb-3.5 text-theme-text-body font-medium"> 
+                        Autorizo (o me autorizo, si soy mayor de edad) a <span id="consentParticipantNameDisplay" class="font-semibold text-theme-primary">[Nombre del Participante]</span>,
+                        a participar en los programas ofrecidos por Askesis.
+                    </p>
+
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <span class="text-theme-text-body text-xs ml-1 font-semibold">Acepto los términos y condiciones arriba expuestos. <span class="text-theme-primary">*</span></span> 
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signatureName" class="form-label">Firma (Escriba su nombre completo) <span class="text-theme-primary">*</span></label>
+                        <input type="text" id="signatureName" name="signatureName" class="form-input" required placeholder="Nombre completo del firmante">
+                    </div>
+                    <div class="form-group">
+                        <label for="dateSigned" class="form-label">Fecha de la Firma <span class="text-theme-primary">*</span></label>
+                        <input type="date" id="dateSigned" name="dateSigned" class="form-input" required>
+                    </div>
+                </fieldset>
+
+                <div class="flex flex-col sm:flex-row gap-2.5 justify-center items-center mt-7"> 
+                    <button type="button" id="clearFormBtn" class="btn btn-secondary"><i class="fas fa-trash-alt mr-1.5"></i>Limpiar</button>
+                    <button type="button" id="downloadDataBtn" class="btn btn-success"><i class="fas fa-download mr-1.5"></i>Descargar</button>
+                    <button type="button" id="copyDataBtn" class="btn btn-secondary"><i class="fas fa-copy mr-1.5"></i>Copiar</button>
+                    <button type="button" id="printFormBtn" class="btn btn-primary"><i class="fas fa-print mr-1.5"></i>Imprimir</button>
+                </div>
+                <p id="saveStatus" class="save-status"></p>
+                <p id="copyStatus" class="copy-status"></p>
+            </form>
+        </div>
+    </main>
+
+    <footer class="bg-theme-bg-body text-theme-text-muted text-center p-5 border-t border-theme-border-light mt-9"> 
+        <p class="text-xs">© <span id="currentYearFooter"></span> Askesis. Toda la información es confidencial.</p>
+        <p class="text-xs mt-0.5">Diseño Acogedor por Askesis <i class="fas fa-heart text-theme-primary opacity-70"></i></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('anamnesisForm');
+            const saveStatus = document.getElementById('saveStatus');
+            const clearFormBtn = document.getElementById('clearFormBtn');
+            const downloadDataBtn = document.getElementById('downloadDataBtn');
+            const copyDataBtn = document.getElementById('copyDataBtn');
+            const copyStatus = document.getElementById('copyStatus');
+            const printFormBtn = document.getElementById('printFormBtn');
+            const currentYearFooter = document.getElementById('currentYearFooter');
+
+            if (currentYearFooter) {
+                currentYearFooter.textContent = new Date().getFullYear();
+            }
+            
+            const participantNameDisplay = document.getElementById('consentParticipantNameDisplay');
+            const guardianNameDisplay = document.getElementById('consentGuardianNameDisplay'); 
+            const participantNameInput = document.getElementById('participantName');
+            const signatureNameInput = document.getElementById('signatureName'); 
+
+            const LOCAL_STORAGE_KEY = 'askesisAnamnesisData_v10'; // Actualizado a v10
+
+            function saveData() {
+                const formData = {};
+                const elements = form.elements;
+
+                for (let i = 0; i < elements.length; i++) {
+                    const element = elements[i];
+                    if (element.name) { 
+                        if (element.type === 'checkbox') {
+                            if (!formData[element.name]) {
+                                formData[element.name] = [];
+                            }
+                            if (element.checked) {
+                                formData[element.name].push(element.value);
+                            }
+                        } else if (element.type === 'radio') {
+                            if (element.checked) {
+                                formData[element.name] = element.value;
+                            }
+                        } else if (element.value !== undefined) { 
+                             formData[element.name] = element.value;
+                        }
+                    }
+                }
+                localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(formData));
+                if(saveStatus) {
+                    saveStatus.textContent = 'Guardado automáticamente ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                    setTimeout(() => { if(saveStatus) saveStatus.textContent = '';}, 2500);
+                }
+                updateConsentNames();
+            }
+
+            function loadData() {
+                const storedData = localStorage.getItem(LOCAL_STORAGE_KEY);
+                if (storedData) {
+                    const formData = JSON.parse(storedData);
+                    for (const nameKey in formData) { 
+                        const elements = form.elements[nameKey]; 
+                        if (elements) {
+                            if (elements.nodeName === 'INPUT' && elements.type === 'radio') { 
+                                if (elements.value === formData[nameKey]) {
+                                    elements.checked = true;
+                                }
+                            } else if (elements.length && elements[0] && elements[0].type === 'radio') { 
+                                for (let i = 0; i < elements.length; i++) {
+                                    if (elements[i].value === formData[nameKey]) {
+                                        elements[i].checked = true;
+                                        break;
+                                    }
+                                }
+                            } else if (elements.length && elements[0] && elements[0].type === 'checkbox') { 
+                                 elements.forEach(checkbox => {
+                                    if (formData[nameKey] && formData[nameKey].includes(checkbox.value)) {
+                                        checkbox.checked = true;
+                                    } else {
+                                        checkbox.checked = false;
+                                    }
+                                 });
+                            } else if (elements.type === 'checkbox') { 
+                                elements.checked = formData[nameKey] && formData[nameKey].includes(elements.value);
+                            }
+                            else { 
+                                if (elements.value !== undefined) { 
+                                    elements.value = formData[nameKey];
+                                }
+                            }
+                        }
+                    }
+                    if(saveStatus) {
+                        saveStatus.textContent = 'Datos cargados.';
+                        setTimeout(() => { if(saveStatus) saveStatus.textContent = '';}, 1500);
+                    }
+                    updateConsentNames(); 
+                }
+            }
+            
+            function updateConsentNames() {
+                if (participantNameInput && participantNameDisplay) {
+                    participantNameDisplay.textContent = participantNameInput.value || '[Nombre del Participante]';
+                }
+                if (signatureNameInput && guardianNameDisplay) { 
+                    guardianNameDisplay.textContent = signatureNameInput.value || '[Nombre del Firmante]';
+                } else if (participantNameInput && guardianNameDisplay) { 
+                     guardianNameDisplay.textContent = participantNameInput.value || '[Nombre del Participante]';
+                }
+            }
+            
+            if (form) {
+                form.addEventListener('input', saveData); 
+                form.addEventListener('change', saveData); 
+            }
+
+            if (clearFormBtn) {
+                clearFormBtn.addEventListener('click', () => {
+                    if (window.confirm('¿Está seguro/a de que quiere borrar todos los datos del formulario? Esta acción es irreversible y no afectará los datos descargados.')) {
+                        if (form) form.reset(); 
+                        localStorage.removeItem(LOCAL_STORAGE_KEY); 
+                        if(saveStatus) saveStatus.textContent = 'Formulario y datos locales limpiados.';
+                        updateConsentNames(); 
+                        setTimeout(() => { if(saveStatus) saveStatus.textContent = '';}, 2500);
+                    }
+                });
+            }
+
+            if (downloadDataBtn) {
+                downloadDataBtn.addEventListener('click', () => {
+                    const storedData = localStorage.getItem(LOCAL_STORAGE_KEY);
+                    if (storedData && storedData !== '{}') { 
+                        const blob = new Blob([storedData], { type: 'application/json' });
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        const pName = document.getElementById('participantName')?.value || 'participante';
+                        a.download = `evaluacion_askesis_${pName.replace(/\s+/g, '_')}_${new Date().toISOString().slice(0,10)}.json`;
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                        if(copyStatus) {
+                             copyStatus.textContent = 'Datos descargados como JSON.';
+                             setTimeout(() => { if(copyStatus) copyStatus.textContent = '';}, 2500);
+                        }
+                    } else {
+                        if(copyStatus) {
+                            copyStatus.textContent = 'No hay datos para descargar.';
+                            setTimeout(() => { if(copyStatus) copyStatus.textContent = '';}, 2500);
+                        }
+                    }
+                });
+            }
+
+            if (copyDataBtn) {
+                copyDataBtn.addEventListener('click', () => {
+                    const storedData = localStorage.getItem(LOCAL_STORAGE_KEY);
+                    if (storedData && storedData !== '{}') {
+                        const textarea = document.createElement('textarea');
+                        textarea.value = storedData;
+                        textarea.style.position = 'fixed'; 
+                        textarea.style.opacity = '0'; 
+                        document.body.appendChild(textarea);
+                        textarea.focus();
+                        textarea.select();
+                        try {
+                            document.execCommand('copy');
+                            if(copyStatus) copyStatus.textContent = 'Datos copiados al portapapeles.';
+                        } catch (err) {
+                            if(copyStatus) copyStatus.textContent = 'Error al copiar. Intente manualmente.';
+                            console.error('Error al copiar:', err);
+                        }
+                        document.body.removeChild(textarea);
+                        if(copyStatus) setTimeout(() => { if(copyStatus) copyStatus.textContent = '';}, 2500);
+                    } else {
+                        if(copyStatus) {
+                             copyStatus.textContent = 'No hay datos para copiar.';
+                             setTimeout(() => { if(copyStatus) copyStatus.textContent = '';}, 2500);
+                        }
+                    }
+                });
+            }
+            
+            if (printFormBtn) {
+                printFormBtn.addEventListener('click', () => {
+                    window.print(); 
+                });
+            }
+
+            loadData();
+            updateConsentNames(); 
+
+            if(participantNameInput) participantNameInput.addEventListener('input', updateConsentNames);
+            if(signatureNameInput) signatureNameInput.addEventListener('input', updateConsentNames);
+
+        });
+    </script>
+
+</body>
+</html>
